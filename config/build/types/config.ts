@@ -10,4 +10,10 @@ export interface BuildOptions {
   mode: webpack.Configuration['mode']
   paths: BuildPaths
   isDev: boolean
+  port: number
+}
+
+export interface BuildEnv {
+  mode: webpack.Configuration['mode']
+  port: number
 }
