@@ -1,7 +1,7 @@
 @import './reset.scss';
-@import 'variables/global';
-@import 'themes/normal';
-@import 'themes/dark';
+@import './variables/global';
+@import './themes/normal';
+@import './themes/dark';
 
 
 
@@ -12,4 +12,13 @@
   color: var(--primary-color);
 
   min-height: 100vh;
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }

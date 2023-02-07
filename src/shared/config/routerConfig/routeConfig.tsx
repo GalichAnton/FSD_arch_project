@@ -4,7 +4,7 @@ import {AboutPage} from "pages/AboutPage";
 import {Suspense} from "react";
 
 export const AppRoutes = {
-  MAIN: 'main',
+  MAIN: '/',
   ABOUT: 'about',
 } as const
 
