@@ -1,5 +1,4 @@
 import React, { type FC } from 'react'
-import cls from './ThemeSwitcher.module.scss'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import LightIcon from 'shared/assets/icons/theme-light.svg'
 import DarkIcon from 'shared/assets/icons/theme-dark.svg'
@@ -14,7 +13,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <AppButton variant={AppButtonVariant.CLEAR} onClick={toggleTheme} className={cls.themeSwitcher}>
+    <AppButton variant={AppButtonVariant.CLEAR} onClick={toggleTheme}>
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon/> }
     </AppButton>
   )

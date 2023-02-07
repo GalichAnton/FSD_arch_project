@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard-with-typescript',
+    'plugin:i18next/recommended',
   ],
   overrides: [
   ],
@@ -16,6 +17,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'i18next',
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -28,5 +30,6 @@ module.exports = {
     'react/react-in-jsx-scope': ['off'],
     '@typescript-eslint/naming-convention': ['off'],
     '@typescript-eslint/consistent-type-assertions': ['off'],
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
 }
