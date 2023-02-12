@@ -9,8 +9,12 @@ module.exports = {
     'standard-with-typescript',
     'plugin:i18next/recommended',
   ],
-  overrides: [
-  ],
+  overrides: [{
+    files: ['**/src/**/*.test.{ts,tsx}'],
+    rules: {
+      'i18next/no-literal-string': 'off',
+    },
+  }],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -32,7 +36,13 @@ module.exports = {
     'react/react-in-jsx-scope': ['off'],
     '@typescript-eslint/naming-convention': ['off'],
     '@typescript-eslint/consistent-type-assertions': ['off'],
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttribute: ['data-testid'],
+      }],
     'max-len': ['error', { code: 120, ignoreComments: true }],
+    '@typescript-eslint/no-floating-promises': 'off',
   },
 }
