@@ -44,5 +44,7 @@ module.exports = {
       }],
     'max-len': ['error', { code: 120, ignoreComments: true }],
     '@typescript-eslint/no-floating-promises': 'off',
+    'react/display-name': 'off',
+    '@typescript-eslint/prefer-includes': 'off',
   },
 }
