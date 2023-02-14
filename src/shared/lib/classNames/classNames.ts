@@ -4,6 +4,6 @@ export function classNames (cls: string, mods: Mods = {}, additional: string[] =
   return [
     cls,
     ...additional.filter(Boolean),
-    ...Object.keys(mods).filter(cls => mods[cls])
+    ...Object.keys(mods).filter(cls => mods[cls]),
   ].join(' ')
 }
