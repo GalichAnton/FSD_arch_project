@@ -9,14 +9,15 @@
     "start": "webpack serve --env port=3000 ",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
+    "storybook": "start-storybook -p 6006 -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook",
     "lint:ts": "eslint  --ext .ts,.tsx src",
     "lint:ts:fix": "eslint  --ext .ts,.tsx src --fix",
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "lint:scss:fix": "stylelint \"src/**/*.scss\" --fix",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook"
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static"
   },
   "repository": {
     "type": "git",
