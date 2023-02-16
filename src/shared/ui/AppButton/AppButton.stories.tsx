@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { AppButton, AppButtonVariant } from './AppButton'
+import { AppButton, AppButtonSize, AppButtonVariant } from './AppButton'
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 
@@ -31,4 +31,38 @@ export const Outline = Template.bind({})
 Outline.args = {
   variant: AppButtonVariant.OUTLINE,
   children: 'AppButton',
+}
+
+export const Background = Template.bind({})
+Background.args = {
+  variant: AppButtonVariant.BACKGROUND_INVERTED,
+  children: 'AppButton',
+}
+
+export const Square = Template.bind({})
+Square.args = {
+  variant: AppButtonVariant.BACKGROUND_INVERTED,
+  children: '>',
+  square: true,
+}
+
+export const OutlineSizeXL = Template.bind({})
+OutlineSizeXL.args = {
+  variant: AppButtonVariant.OUTLINE,
+  children: 'AppButton',
+  size: AppButtonSize.XL,
+}
+
+export const OutlineSizeL = Template.bind({})
+OutlineSizeL.args = {
+  variant: AppButtonVariant.OUTLINE,
+  children: 'AppButton',
+  size: AppButtonSize.L,
+}
+
+export const OutlineSizeM = Template.bind({})
+OutlineSizeM.args = {
+  variant: AppButtonVariant.OUTLINE,
+  children: 'AppButton',
+  size: AppButtonSize.M,
 }

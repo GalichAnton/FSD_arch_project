@@ -17,8 +17,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
       <div className={cls.links}>
-        <AppLink to={AppRoutes.MAIN} className={cls.mainLink}>{t('Главная страница')}</AppLink>
-        <AppLink variant={AppLinkVariant.SECONDARY} to={AppRoutes.ABOUT}>{t('О нас')}</AppLink>
+        /
       </div>
     </div>
   )
