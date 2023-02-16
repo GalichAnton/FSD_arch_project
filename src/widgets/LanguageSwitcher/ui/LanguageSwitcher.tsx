@@ -13,9 +13,9 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
   const { t, i18n } = useTranslation()
 
   return (
-      <AppButton 
+      <AppButton
         variant={AppButtonVariant.CLEAR}
-        className={classNames('', {}, [className])} 
+        className={classNames('', {}, [className])}
         onClick={() => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')}
       >
         {t(short ? 'Короткй язык' : 'Язык')}
