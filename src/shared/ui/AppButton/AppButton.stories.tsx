@@ -21,6 +21,12 @@ Clear.args = {
   children: 'AppButton',
 }
 
+export const ClearInverted = Template.bind({})
+ClearInverted.args = {
+  variant: AppButtonVariant.CLEAR_INVERTED,
+  children: 'AppButton',
+}
+
 export const Primary = Template.bind({})
 Primary.args = {
   children: 'AppButton',
