@@ -46,5 +46,6 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/prefer-includes': 'off',
+    'i18next/no-literal-string': 'off',
   },
 }
