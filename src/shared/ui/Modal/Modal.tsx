@@ -1,3 +1,4 @@
+import { useTheme } from 'app/providers/ThemeProvider'
 import React, {
   type ReactNode, type FC, type MouseEvent,
   useState,
@@ -27,6 +28,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const [isClosing, setIsClosing] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const {theme} = useTheme()
 
   const closeHandler = useCallback(() => {
     if (onClose) {

@@ -36,16 +36,11 @@ module.exports = {
     'react/react-in-jsx-scope': ['off'],
     '@typescript-eslint/naming-convention': ['off'],
     '@typescript-eslint/consistent-type-assertions': ['off'],
-    'i18next/no-literal-string': [
-      'error',
-      {
-        markupOnly: true,
-        ignoreAttribute: ['data-testid'],
-      }],
     'max-len': ['error', { code: 120, ignoreComments: true }],
     '@typescript-eslint/no-floating-promises': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/prefer-includes': 'off',
     'i18next/no-literal-string': 'off',
+    'promise/param-names': 'off',
   },
 }
