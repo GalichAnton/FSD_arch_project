@@ -9,6 +9,7 @@ describe('SideBar', () => {
 
     expect(screen.getByTestId('sideBar')).toBeInTheDocument()
   })
+
   test('toggle component', async () => {
     componentRender(<SideBar/>)
     const toggleBtn = screen.getByTestId('toggle')

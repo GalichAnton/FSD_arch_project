@@ -9,6 +9,9 @@
   "Обновить страницу": "Refresh page",
   "Переключение": "Switch",
   "Войти":"Sign in",
-  "логин":"login",
-  "пароль":"password"
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Auth form",
+  "Вы ввели неверный логин или пароль": "Uncorrect username or password",
+  "Выйти": "Sign out"
 }

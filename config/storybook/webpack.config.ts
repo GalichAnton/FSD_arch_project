@@ -2,6 +2,7 @@ import type webpack from 'webpack'
 import { type BuildPaths } from '../build/types/config'
 import path from 'path'
 import { buildCSSLoaders } from '../build/loaders/buildCSSLoaders'
+import { DefinePlugin } from 'webpack'
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -26,5 +27,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   config.module.rules.push(buildCSSLoaders(true))
+
+  config.plugins.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }))
+
   return config
 }

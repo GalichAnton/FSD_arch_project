@@ -29,6 +29,7 @@ export const AppButton: FC<AppButtonProps> = (props) => {
     children,
     square,
     variant,
+    disabled,
     size = AppButtonSize.M,
     ...otherProps
   } = props
@@ -36,6 +37,7 @@ export const AppButton: FC<AppButtonProps> = (props) => {
   const mods: Record<string, boolean> = {
     [cls.square]: square,
     [cls[size]]: true,
+    [cls.disabled]: disabled,
   }
 
   return (
