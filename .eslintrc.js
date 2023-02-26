@@ -42,5 +42,7 @@ module.exports = {
     '@typescript-eslint/prefer-includes': 'off',
     'i18next/no-literal-string': 'off',
     'promise/param-names': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off'
   },
 }
