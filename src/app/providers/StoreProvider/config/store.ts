@@ -1,4 +1,4 @@
-import { configureStore,  type ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { counterReducer } from 'entity/Counter'
 import { userReducer } from 'entity/User'
 import { createReducerManager } from './reducerManager'
