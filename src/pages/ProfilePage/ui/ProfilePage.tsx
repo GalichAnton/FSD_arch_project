@@ -22,4 +22,3 @@ export const ProfilePage = ({ className }: ProfilePageProps) => {
         </DynamicModuleLoader>
   )
 }
-
