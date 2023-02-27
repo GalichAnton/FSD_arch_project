@@ -29,7 +29,7 @@ export const AppButton = memo((props: AppButtonProps) => {
     className,
     children,
     square,
-    variant,
+    variant = AppButtonVariant.OUTLINE,
     disabled,
     size = AppButtonSize.M,
     ...otherProps

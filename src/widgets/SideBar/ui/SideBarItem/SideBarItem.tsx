@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './SidebarItem.module.scss'
+import cls from './SideBarItem.module.scss'
 import { type SidebarItemType } from '../../model/items'
 
 interface SidebarItemProps {

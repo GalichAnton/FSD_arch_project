@@ -43,7 +43,7 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [])
 
-  const mods: Record<string, boolean> = {
+  const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   }

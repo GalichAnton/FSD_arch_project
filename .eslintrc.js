@@ -43,6 +43,7 @@ module.exports = {
     'i18next/no-literal-string': 'off',
     'promise/param-names': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off'
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
   },
 }

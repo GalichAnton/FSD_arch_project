@@ -76,6 +76,6 @@ OutlineSizeM.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
   children: '>',
-  theme: AppButtonVariant.OUTLINE,
+  variant: AppButtonVariant.OUTLINE,
   disabled: true,
 }
