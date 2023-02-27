@@ -1,8 +1,8 @@
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
-import React, { type ChangeEvent, useCallback, type FC, type FormEvent, useEffect } from 'react'
+import React, { type ChangeEvent, useCallback, type FC, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector, useStore } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppButton, AppButtonVariant } from 'shared/ui/AppButton/AppButton'
 import { Input } from 'shared/ui/Input/Input'
@@ -14,11 +14,12 @@ import {
   getLoginUsername,
 } from '../../model/selectors/getLoginState/getLoginState'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { type ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface LoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -26,9 +27,9 @@ const initialReducers: ReducersList = {
 }
 
 export const LoginForm: FC<LoginFormProps> = (props) => {
-  const { className } = props
+  const { className, onSuccess } = props
   const { t } = useTranslation()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
   const isLoading = useSelector(getLoginIsLoading)
@@ -42,9 +43,12 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
     dispatch(loginActions.setPassword(e.target.value))
   }, [dispatch])
 
-  const onLoginClick = useCallback((e: FormEvent) => {
+  const onLoginClick = useCallback(async (e: FormEvent) => {
     e.preventDefault()
-    dispatch(loginByUsername({ username, password }))
+    const result = await dispatch(loginByUsername({ username, password }))
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
   }, [dispatch, password, username])
 
   return (

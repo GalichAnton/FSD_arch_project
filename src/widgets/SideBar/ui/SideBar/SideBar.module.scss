@@ -27,42 +27,7 @@
   margin-left: 30px;
 }
 
-.item {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-}
-
 .collapseBtn {
   right: -32px;
   bottom: 40px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-  overflow: hidden;
-
-  .switchers {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .langSwitcher {
-    margin-left: 0;
-  }
-
-  .link {
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-    width: 0;
-  }
 }

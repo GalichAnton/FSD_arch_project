@@ -1,5 +1,5 @@
 
-import React, { useCallback, useState, type FC } from 'react'
+import React, { memo, useCallback, useState, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +12,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: FC<NavbarProps> = (props) => {
+export const Navbar = memo((props: NavbarProps) => {
   const { className } = props
   const [isAutoModalOpen, setIsAutoModalOpen] = useState(false)
   const authData = useSelector(getUserAuthData)
@@ -55,4 +55,6 @@ export const Navbar: FC<NavbarProps> = (props) => {
      {isAutoModalOpen && <LoginModal isOpen={isAutoModalOpen} onClose={onCloseModal}/>}
     </div>
   )
-}
+})
+
+Navbar.displayName = 'Navbar'

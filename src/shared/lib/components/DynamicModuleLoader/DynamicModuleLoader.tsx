@@ -4,7 +4,9 @@ import { type StateSchemaKeys } from 'app/providers/StoreProvider/config/StateSc
 import React, { useEffect, type FC } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 
-export type ReducersList = Record<StateSchemaKeys, Reducer>
+export type ReducersList = {
+  [name in StateSchemaKeys]?: Reducer;
+}
 
 interface DynamicModuleLoaderProps {
   reducers: ReducersList

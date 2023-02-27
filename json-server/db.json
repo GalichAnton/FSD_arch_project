@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Антон",
+    "lastname": "Галич",
+    "age": 33,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "SPB",
+    "username": "admin",
+    "avatar": "https://www.boredpanda.com/blog/wp-content/uploads/2016/09/animals-dressed-like-humans-zoo-porraits-yago-partal-15-57d65cc0d37d4__880.jpg"
+  }
 }
