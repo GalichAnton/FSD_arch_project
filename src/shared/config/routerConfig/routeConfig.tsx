@@ -6,6 +6,10 @@ import { NotFoundPage } from 'pages/NotFoundPage'
 import { PageLoader } from 'widgets/PageLoader'
 import { ProfilePage } from 'pages/ProfilePage'
 
+export type AppRoutesProps = RouteProps & {
+  authOnly?: boolean
+}
+
 export const AppRoutes = {
   MAIN: '/',
   ABOUT: 'about',
@@ -22,7 +26,7 @@ export const RoutePath: Record<AppRoutesType, string> = {
   NOT_FOUND: '*',
 }
 
-export const RouteConfig: Record<AppRoutesType, RouteProps> = {
+export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
   MAIN: {
     path: RoutePath.MAIN,
     element: <Suspense fallback={<PageLoader/>}><MainPage /></Suspense>,
@@ -34,6 +38,7 @@ export const RouteConfig: Record<AppRoutesType, RouteProps> = {
   PROFILE: {
     path: RoutePath.PROFILE,
     element: <ProfilePage/>,
+    authOnly: true,
   },
 
   NOT_FOUND: {

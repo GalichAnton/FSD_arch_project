@@ -1,23 +1,32 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import React, {
-  type InputHTMLAttributes, memo, useEffect, useRef, useState,
+  type InputHTMLAttributes, memo,
 } from 'react'
 import cls from './Input.module.scss'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>
+
+interface InputProps extends HTMLInputProps {
   className?: string
+  onChange?: (value: string) => void
 }
 
 export const Input = memo((props: InputProps) => {
   const {
     className,
+    onChange,
     type = 'text',
     placeholder,
+    readOnly,
     ...otherProps
   } = props
 
+  const mods: Mods = {
+    [cls.readonly]: readOnly,
+  }
+
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
         {placeholder && (
             <div className={cls.placeholder}>
                 {`${placeholder}>`}
@@ -26,6 +35,7 @@ export const Input = memo((props: InputProps) => {
           <input
               type={type}
               className={cls.input}
+              onChange={(e) => { onChange(e.target.value) }}
               {...otherProps}
           />
     </div>

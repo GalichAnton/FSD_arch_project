@@ -35,12 +35,12 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
   const isLoading = useSelector(getLoginIsLoading)
   const error = useSelector(getLoginError)
 
-  const onChangeUsername = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(loginActions.setUsername(e.target.value))
+  const onChangeUsername = useCallback((value: string) => {
+    dispatch(loginActions.setUsername(value))
   }, [dispatch])
 
-  const onChangePassword = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(loginActions.setPassword(e.target.value))
+  const onChangePassword = useCallback((value: string) => {
+    dispatch(loginActions.setPassword(value))
   }, [dispatch])
 
   const onLoginClick = useCallback(async (e: FormEvent) => {
