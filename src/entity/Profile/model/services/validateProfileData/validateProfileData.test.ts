@@ -6,11 +6,11 @@ import { validateProfileData } from './validateProfileData'
 const data = {
   username: 'admin',
   age: 22,
-  country: Country.Ukraine,
+  country: Country.Russia,
   lastname: 'ulbi tv',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD,
+  currency: Currency.RUB,
 }
 
 describe('validateProfileData.test', () => {
