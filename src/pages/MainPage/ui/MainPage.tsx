@@ -5,7 +5,7 @@ import { BugButton } from 'app/providers/ErrorBoundary'
 export const MainPage = () => {
   const { t } = useTranslation()
   return (
-    <div>
+    <div style={{ color: 'green' }}>
       <BugButton/>
       {t('Главная страница')}
     </div>

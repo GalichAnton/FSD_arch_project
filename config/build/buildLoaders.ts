@@ -1,8 +1,11 @@
 import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import { buildCSSLoaders } from './loaders/buildCSSLoaders'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
-export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
+  const { isDev } = options
+
   const tsLoader = {
     test: /\.tsx?$/,
 
@@ -12,18 +15,7 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const cssLoaders = buildCSSLoaders(isDev)
 
-  const babelLoader = {
-    test: /\.(js|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [
-          ['@babel/preset-env'],
-        ],
-      },
-    },
-  }
+  const babelLoader = buildBabelLoader(options)
 
   const fileLoaders = [
     {
