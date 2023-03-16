@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import {ArticleDetailsPage} from './ArticleDetailsPage'
+import { ArticleDetailsPage } from './ArticleDetailsPage'
 
 export default {
   title: 'shared/ArticleDetailsPage',
