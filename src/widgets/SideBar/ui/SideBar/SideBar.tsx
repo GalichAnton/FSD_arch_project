@@ -1,4 +1,4 @@
-import React, { type FC, useState, useMemo, memo } from 'react'
+import React, {  useState, useMemo, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './SideBar.module.scss'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'

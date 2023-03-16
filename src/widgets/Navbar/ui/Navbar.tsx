@@ -1,5 +1,5 @@
 
-import React, { memo, useCallback, useState, type FC } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'

@@ -5,6 +5,7 @@ import { type CounterSchema } from 'entity/Counter'
 import { type ProfileSchema } from 'entity/Profile'
 import { type UserSchema } from 'entity/User'
 import { type LoginSchema } from 'features/AurhByUserName'
+import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type NavigateOptions, type To } from 'react-router-dom'
 
 export interface StateSchema {
@@ -15,6 +16,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema
