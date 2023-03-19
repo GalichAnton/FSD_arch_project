@@ -27,16 +27,30 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "Антон",
-    "lastname": "Галич",
-    "age": 33,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "СПБ",
-    "username": "admin",
-    "avatar": "https://sun9-60.userapi.com/impf/c846523/v846523897/192ef5/XbDiZkiL6DA.jpg?size=1079x1080&quality=96&sign=761e5823fd0a98898a25e3a680311821&c_uniq_tag=BLoOWFj6qkwtspS74SDTPBBJiSOFMXgb2T6Vhep3_R8&type=album"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Антон",
+      "lastname": "Галич",
+      "age": 33,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "СПБ",
+      "username": "admin",
+      "avatar": "https://sun9-60.userapi.com/impf/c846523/v846523897/192ef5/XbDiZkiL6DA.jpg?size=1079x1080&quality=96&sign=761e5823fd0a98898a25e3a680311821&c_uniq_tag=BLoOWFj6qkwtspS74SDTPBBJiSOFMXgb2T6Vhep3_R8&type=album"
+    },
+    {
+      "id": "2",
+      "first": "Vasya",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "ulbi tv",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",

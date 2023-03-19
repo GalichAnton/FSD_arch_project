@@ -26,7 +26,7 @@ type AppRoutesType = keyof typeof AppRoutes
 export const RoutePath: Record<AppRoutesType, string> = {
   MAIN: '/',
   ABOUT: '/about',
-  PROFILE: '/profile',
+  PROFILE: '/profile/',
   ARTICLES: '/articles',
   ARTICLE_DETAILS: '/article_details',
 
@@ -43,7 +43,7 @@ export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
     element: <Suspense fallback={<PageLoader/>}><AboutPage /></Suspense>,
   },
   PROFILE: {
-    path: RoutePath.PROFILE,
+    path: `${RoutePath.PROFILE}:id`,
     element: <ProfilePage/>,
     authOnly: true,
   },
