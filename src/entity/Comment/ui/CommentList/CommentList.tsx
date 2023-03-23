@@ -23,8 +23,8 @@ export const CommentList = memo((props: CommentListProps) => {
             <CommentCard isLoading />
             <CommentCard isLoading />
         </div>
-    );
-}
+    )
+  }
 
   return (
       <div className={classNames(cls.CommentList, {}, [className])}>

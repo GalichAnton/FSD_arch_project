@@ -7,13 +7,15 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/Dy
 import { ArticleDetails } from 'entity/Article'
 import { CommentList } from 'entity/Comment'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/addCommentForm'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { RoutePath } from 'shared/config/routerConfig/routeConfig'
+import { AppButton, AppButtonVariant } from 'shared/ui/AppButton/AppButton'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -30,10 +32,15 @@ export const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   const dispatch = useDispatch()
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
+  const navigate = useNavigate()
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
   })
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.ARTICLES)
+  }, [navigate])
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -50,13 +57,16 @@ export const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-          <ArticleDetails id={id} />
-          <Text className={cls.commentTitle} title={t('Комментарии')} />
-          <AddCommentForm onSendComment={onSendComment}/>
-          <CommentList
-              isLoading={commentsIsLoading}
-              comments={comments}
-          />
+        <AppButton variant={AppButtonVariant.OUTLINE} onClick={onBackToList}>
+          {t('Назад к списку')}
+        </AppButton>
+        <ArticleDetails id={id} />
+        <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment}/>
+        <CommentList
+            isLoading={commentsIsLoading}
+            comments={comments}
+        />
       </div>
     </DynamicModuleLoader>
   )
