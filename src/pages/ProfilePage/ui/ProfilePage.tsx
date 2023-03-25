@@ -22,6 +22,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { ValidateProfileError } from 'entity/Profile/model/types/profile'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -87,7 +88,7 @@ export const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text
@@ -110,7 +111,7 @@ export const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }
