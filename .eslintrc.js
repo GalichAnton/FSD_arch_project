@@ -50,5 +50,6 @@ module.exports = {
     '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-invalid-void-type': 'off',
+    'n/no-callback-literal': 'off',
   },
 }
