@@ -8,6 +8,7 @@ import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type LoginSchema } from 'features/AurhByUserName'
 import { type UISchema } from 'features/UI'
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema'
 
 export interface StateSchema {
@@ -19,9 +20,9 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlesPageSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema
