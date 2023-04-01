@@ -81,17 +81,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           to={RoutePath.ARTICLE_DETAILS + article.id}
           className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
-            <Card className={cls.card} onClick={onOpenArticle}>
-                <div className={cls.imageWrapper}>
-                    <img alt={article.title} src={article.img} className={cls.img} />
-                    <Text text={article.createdAt} className={cls.date} />
-                </div>
-                <div className={cls.infoWrapper}>
-                    {types}
-                    {views}
-                </div>
-                <Text text={article.title} className={cls.title} />
-            </Card>
+          <Card className={cls.card} onClick={onOpenArticle}>
+            <div className={cls.imageWrapper}>
+              <img alt={article.title} src={article.img} className={cls.img} />
+              <Text text={article.createdAt} className={cls.date} />
+            </div>
+            <div className={cls.infoWrapper}>
+              {types}
+              {views}
+            </div>
+            <Text text={article.title} className={cls.title} />
+          </Card>
         </AppLink>
   )
 })

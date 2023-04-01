@@ -38,15 +38,10 @@ export const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   const recommendations = useSelector(getArticleRecommendations.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading)
-  const navigate = useNavigate()
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
   })
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.ARTICLES)
-  }, [navigate])
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -63,9 +58,6 @@ export const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <AppButton variant={AppButtonVariant.OUTLINE} onClick={onBackToList}>
-          {t('Назад к списку')}
-        </AppButton>
         <ArticleDetails id={id} />
         <Text
           size={TextSize.L}

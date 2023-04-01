@@ -7,6 +7,9 @@ import { AppButton, AppButtonVariant } from 'shared/ui/AppButton/AppButton'
 import { LoginModal } from 'features/AurhByUserName'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entity/User'
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { RoutePath } from 'shared/config/routerConfig/routeConfig'
 
 interface NavbarProps {
   className?: string
@@ -35,13 +38,25 @@ export const Navbar = memo((props: NavbarProps) => {
   if (authData) {
     return (
         <nav className={classNames(cls.navbar, {}, [className])}>
-            <AppButton
-                variant={AppButtonVariant.CLEAR_INVERTED}
-                className={cls.links}
-                onClick={onLogout}
-            >
-                {t('Выйти')}
-            </AppButton>
+          <Text
+            className={cls.appName}
+            title={t('FSD App')}
+            theme={TextTheme.INVERTED}
+          />
+          <AppLink
+            to={RoutePath.ARTICLE_DETAILS}
+            variant={AppLinkVariant.SECONDARY}
+            className={cls.createBtn}
+          >
+            {t('Создать статью')}
+          </AppLink>
+          <AppButton
+            variant={AppButtonVariant.CLEAR_INVERTED}
+            className={cls.links}
+            onClick={onLogout}
+          >
+            {t('Выйти')}
+          </AppButton>
         </nav>
     )
   }

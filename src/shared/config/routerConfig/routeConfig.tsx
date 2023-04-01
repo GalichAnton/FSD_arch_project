@@ -7,6 +7,7 @@ import { PageLoader } from 'widgets/PageLoader'
 import { ProfilePage } from 'pages/ProfilePage'
 import { ArticlesPage } from 'pages/ArticlesPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
+import { ArticleEditPage } from 'pages/ArticleEditPage'
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean
@@ -18,6 +19,8 @@ export const AppRoutes = {
   PROFILE: 'profile',
   ARTICLES: '/articles',
   ARTICLE_DETAILS: '/article_details',
+  ARTICLE_CREATE: '/article_create',
+  ARTICLE_EDIT: '/article_edit',
   NOT_FOUND: '*',
 } as const
 
@@ -28,7 +31,9 @@ export const RoutePath: Record<AppRoutesType, string> = {
   ABOUT: '/about',
   PROFILE: '/profile/',
   ARTICLES: '/articles',
-  ARTICLE_DETAILS: '/article_details',
+  ARTICLE_DETAILS: '/articles/', // + :id,
+  ARTICLE_CREATE: '/articles/new',
+  ARTICLE_EDIT: '/articles/:id/edit',
 
   NOT_FOUND: '*',
 }
@@ -55,6 +60,16 @@ export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
   ARTICLE_DETAILS: {
     path: `${RoutePath.ARTICLE_DETAILS}:id`,
     element: <ArticleDetailsPage />,
+    authOnly: true,
+  },
+  ARTICLE_CREATE: {
+    path: `${RoutePath.ARTICLE_CREATE}`,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  ARTICLE_EDIT: {
+    path: `${RoutePath.ARTICLE_EDIT}`,
+    element: <ArticleEditPage />,
     authOnly: true,
   },
   // last
