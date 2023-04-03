@@ -1,6 +1,6 @@
 import {
   profileActions, profileReducer, type ProfileSchema, updateProfileData, ValidateProfileError,
-} from 'entity/Profile'
+} from '../../index'
 import { Country } from 'entity/Country'
 import { Currency } from 'entity/Currency'
 import { type DeepPartial } from '@reduxjs/toolkit'
@@ -19,7 +19,7 @@ describe('profileSlice.test', () => {
   test('test set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: false }
     expect(profileReducer(
-      state as ProfileSchema,
+      state,
       profileActions.setReadonly(true),
     )).toEqual({ readonly: true })
   })
@@ -28,7 +28,7 @@ describe('profileSlice.test', () => {
     const state: DeepPartial<ProfileSchema> = { data, form: { username: '' } }
 
     expect(profileReducer(
-      state as ProfileSchema,
+      state,
       profileActions.cancelEdit(),
     )).toEqual({
       readonly: true,
@@ -42,7 +42,7 @@ describe('profileSlice.test', () => {
     const state: DeepPartial<ProfileSchema> = { form: { username: '123' } }
 
     expect(profileReducer(
-      state as ProfileSchema,
+      state,
       profileActions.updateProfile({
         username: '123456',
       }),
@@ -58,7 +58,7 @@ describe('profileSlice.test', () => {
     }
 
     expect(profileReducer(
-      state as ProfileSchema,
+      state,
       updateProfileData.pending,
     )).toEqual({
       isLoading: true,
@@ -72,7 +72,7 @@ describe('profileSlice.test', () => {
     }
 
     expect(profileReducer(
-      state as ProfileSchema,
+      state,
       updateProfileData.fulfilled(data, ''),
     )).toEqual({
       isLoading: false,

@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import cls from './ArticlesPage.module.scss'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -31,7 +30,6 @@ const reducers: ReducersList = {
 
 export const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props
-  const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const articles = useSelector(getArticles.selectAll)
   const isLoading = useSelector(getArticlesPageIsLoading)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { Text } from 'shared/ui/Text/Text'
+import { Text } from '../../ui/Text/Text'
 import { Card } from './Card'
 
 export default {

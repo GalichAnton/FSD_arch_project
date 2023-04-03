@@ -6,8 +6,8 @@ import { RoutePath } from 'shared/config/routerConfig/routeConfig'
 import { AppButton, AppButtonVariant } from 'shared/ui/AppButton/AppButton'
 import { useSelector } from 'react-redux'
 import { getArticleDetailsData } from 'entity/Article/model/selectors/articleDetails'
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
-import cls from './ArticleDetailsPageHeader.module.scss'
+import { getCanEditArticle } from '../../model/selectors/article'
+import { HStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -29,19 +29,18 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   }, [article?.id, navigate])
 
   return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack max justify='between' className={classNames('', {}, [className])}>
             <AppButton variant={AppButtonVariant.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </AppButton>
             {canEdit && (
               <AppButton
-                className={cls.editBtn}
                 variant={AppButtonVariant.OUTLINE}
                 onClick={onEditArticle}
               >
                   {t('Редактировать')}
               </AppButton>
             )}
-        </div>
+        </HStack>
   )
 })

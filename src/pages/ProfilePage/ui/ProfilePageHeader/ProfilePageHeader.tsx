@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux'
 import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entity/Profile'
 import { useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import cls from './ProfilePageHeader.module.scss'
 import { getUserAuthData } from 'entity/User'
+import { HStack } from 'shared/ui/Stack'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -39,14 +39,13 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch])
 
   return (
-    <div className={classNames(cls.profilePageHeader, {}, [className])}>
+    <HStack justify='between' max>
       <Text title={t('Профиль')} />
       {canEdit && (
-         <div className={cls.btnsWrapper}>
+         <>
       {readonly
         ? (
             <AppButton
-                className={cls.editBtn}
                 variant={AppButtonVariant.OUTLINE}
                 onClick={onEdit}
             >
@@ -54,25 +53,23 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
             </AppButton>
           )
         : (
-            <>
+            <HStack gap='8'>
               <AppButton
-                  className={cls.editBtn}
                   variant={AppButtonVariant.OUTLINE_RED}
                   onClick={onCancelEdit}
               >
                   {t('Отменить')}
               </AppButton>
               <AppButton
-                  className={cls.saveBtn}
                   variant={AppButtonVariant.OUTLINE}
                   onClick={onSave}
               >
                   {t('Сохранить')}
               </AppButton>
-            </>
+            </HStack>
           )}
-          </div>
+          </>
       )}
-    </div>
+    </HStack>
   )
 }

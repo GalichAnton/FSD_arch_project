@@ -1,6 +1,6 @@
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
-import React, { type ChangeEvent, useCallback, type FC, type FormEvent } from 'react'
+import { useCallback, type FC, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'

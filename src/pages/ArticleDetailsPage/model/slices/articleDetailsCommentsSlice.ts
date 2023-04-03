@@ -8,7 +8,7 @@ import { type StateSchema } from 'app/providers/StoreProvider'
 
 import {
   fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { type ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
 
 const commentsAdapter = createEntityAdapter<Comment>({

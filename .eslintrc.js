@@ -28,6 +28,7 @@ module.exports = {
   plugins: [
     'react',
     'i18next',
+    'fsd-arch-plugin',
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -51,5 +52,6 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
+    'fsd-arch-plugin/path-checker': 'error',
   },
 }

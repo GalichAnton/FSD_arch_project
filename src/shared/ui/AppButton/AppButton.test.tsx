@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { AppButton } from 'shared/ui/AppButton/AppButton'
+import { AppButton } from '../../ui/AppButton/AppButton'
 
 describe('AppButton', () => {
   test('test render', async () => {

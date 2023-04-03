@@ -1,4 +1,4 @@
-import React, { memo, type FC } from 'react'
+import { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { AppButton, AppButtonVariant } from 'shared/ui/AppButton/AppButton'
