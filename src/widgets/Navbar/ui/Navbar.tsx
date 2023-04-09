@@ -10,6 +10,8 @@ import { getUserAuthData, userActions } from 'entity/User'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { RoutePath } from 'shared/config/routerConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface NavbarProps {
   className?: string
@@ -50,13 +52,21 @@ export const Navbar = memo((props: NavbarProps) => {
           >
             {t('Создать статью')}
           </AppLink>
-          <AppButton
-            variant={AppButtonVariant.CLEAR_INVERTED}
-            className={cls.links}
-            onClick={onLogout}
-          >
-            {t('Выйти')}
-          </AppButton>
+          <Dropdown
+            direction="bottom left"
+            className={cls.dropdown}
+            items={[
+              {
+                content: t('Профиль'),
+                href: RoutePath.PROFILE + authData.id,
+              },
+              {
+                content: t('Выйти'),
+                onClick: onLogout,
+              },
+            ]}
+            trigger={<Avatar size={30} src={authData.avatar} />}
+        />
         </nav>
     )
   }
