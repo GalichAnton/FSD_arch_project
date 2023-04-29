@@ -53,5 +53,7 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
     'fsd-arch-plugin/path-checker': 'error',
+    '@typescript-eslint/await-thenable': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
   },
 }
