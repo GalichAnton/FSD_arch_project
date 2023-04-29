@@ -3,7 +3,7 @@ import { Currency } from 'entity/Currency'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { type ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema'
 import { profileActions, profileReducer } from './profileSlice'
-import { DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial } from '@reduxjs/toolkit'
 
 const data = {
   username: 'admin',
