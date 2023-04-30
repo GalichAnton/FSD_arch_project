@@ -1,18 +1,18 @@
 import React from 'react'
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { EditableProfileCardHeader } from './EditableProfileCardHeader'
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader'
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator'
 
 export default {
-  title: 'features/editableProfileCard/EditableProfileCardHeader',
-  component: EditableProfileCardHeader,
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
+  component: ArticleDetailsPageHeader,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof EditableProfileCardHeader>
+} as ComponentMeta<typeof ArticleDetailsPageHeader>
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />
+const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}

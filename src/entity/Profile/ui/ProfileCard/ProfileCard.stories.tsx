@@ -1,4 +1,3 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ProfileCard } from '../ProfileCard/ProfileCard'
 import { Country } from 'entity/Country'
