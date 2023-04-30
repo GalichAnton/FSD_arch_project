@@ -9,13 +9,13 @@ export const AppRouter = () => {
     const element = (
       <Suspense fallback={<PageLoader />}>
           {route.element}
-        </Suspense>
+      </Suspense>
     )
     return (
         <Route
           key={route.path}
           path={route.path}
-          element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+          element={route.authOnly ? <RequireAuth roles={route.roles} >{element}</RequireAuth> : element}
         />
     )
   }, [])
