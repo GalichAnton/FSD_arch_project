@@ -10,8 +10,9 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entity
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { RoutePath } from 'shared/config/routerConfig/routeConfig'
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { HStack } from 'shared/ui/Stack'
+import { NotificationButton } from 'features/notificationButton'
+import { AvatarDropdown } from 'features/avatarDropdown'
 
 interface NavbarProps {
   className?: string
@@ -43,7 +44,7 @@ export const Navbar = memo((props: NavbarProps) => {
 
   if (authData) {
     return (
-        <nav className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
           <Text
             className={cls.appName}
             title={t('FSD App')}
@@ -56,28 +57,12 @@ export const Navbar = memo((props: NavbarProps) => {
           >
             {t('Создать статью')}
           </AppLink>
-          <Dropdown
-            direction="bottom left"
-            className={cls.dropdown}
-            items={[
-              ...(isAdminPanelAvailable
-                ? [{
-                    content: t('Админка'),
-                    href: RoutePath.ADMIN_PANEL,
-                  }]
-                : []),
-              {
-                content: t('Профиль'),
-                href: RoutePath.PROFILE + authData.id,
-              },
-              {
-                content: t('Выйти'),
-                onClick: onLogout,
-              },
-            ]}
-            trigger={<Avatar size={30} src={authData.avatar} />}
-        />
-        </nav>
+          <HStack gap="16" className={cls.actions}>
+            <NotificationButton />
+            <AvatarDropdown />
+          </HStack>
+
+        </header>
     )
   }
 

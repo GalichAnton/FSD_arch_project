@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { AppButton } from '../AppButton/AppButton'
+import { AppButton } from '../../../AppButton/AppButton'
 import { Dropdown } from './Dropdown'
 
 export default {
