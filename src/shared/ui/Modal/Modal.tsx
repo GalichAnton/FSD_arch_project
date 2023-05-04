@@ -1,15 +1,12 @@
 import { useTheme } from 'app/providers/ThemeProvider'
-import React, {
-  type ReactNode, type FC, type MouseEvent,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
+import {
+  type ReactNode, type FC,
 } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from '../Portal/Portal'
 import cls from './Modal.module.scss'
 import { Overlay } from '../Overlay/Overlay'
+import { useModal } from 'shared/lib/hooks/useModal/useModal'
 
 interface ModalProps {
   className?: string
@@ -19,7 +16,8 @@ interface ModalProps {
   lazy?: boolean
 }
 
-const ANIMATION_DURATION = 300
+const ANIMATION_DELAY = 300
+
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className,
@@ -29,67 +27,30 @@ export const Modal: FC<ModalProps> = (props) => {
     lazy = false,
   } = props
 
-  const [isClosing, setIsClosing] = useState(false)
-  const [isMouonted, setIsMounted] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setTimeout>>()
   const { theme } = useTheme()
 
-  const closeHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true)
-      timerRef.current = setTimeout(() => {
-        onClose()
-        setIsClosing(false)
-      }, ANIMATION_DURATION)
-    }
-  }, [])
+  const {
+    close,
+    isClosing,
+    isMounted,
+  } = useModal({
+    animationDelay: ANIMATION_DELAY,
+    onClose,
+    isOpen,
+  })
 
   const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   }
 
-  const onContentClick = (e: MouseEvent) => {
-    e.stopPropagation()
-  }
-
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler()
-    }
-  }, [closeHandler])
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true)
-    }
-    return () => {
-      setIsMounted(false)
-    }
-  }, [isOpen])
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-      window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = 'auto'
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-    return () => {
-      document.body.style.overflow = 'auto'
-      clearTimeout(timerRef.current)
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [isOpen, handleKeyDown])
-
-  if (lazy && !isMouonted) return null
+  if (lazy && !isMounted) return null
 
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
-      <Overlay onClick={closeHandler} />
-        <div className={cls.content} onClick={onContentClick}>
+      <Overlay onClick={close} />
+        <div className={cls.content} >
           {children}
         </div>
       </div>
