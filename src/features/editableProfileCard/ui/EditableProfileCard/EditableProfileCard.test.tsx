@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { type Profile } from 'entity/Profile'
 import { Currency } from 'entity/Currency'
 import { Country } from 'entity/Country'
 import userEvent from '@testing-library/user-event'
-import { $api } from 'shared/api/api'
+import { $api } from '@/shared/api/api'
 import { profileReducer } from '../../model/slice/profileSlice'
 import { EditableProfileCard } from './EditableProfileCard'
 

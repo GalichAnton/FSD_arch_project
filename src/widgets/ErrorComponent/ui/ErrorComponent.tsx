@@ -1,8 +1,8 @@
 import React, { type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ErrorComponent.module.scss'
 import { useTranslation } from 'react-i18next'
-import { AppButton } from 'shared/ui/AppButton/AppButton'
+import { AppButton } from '@/shared/ui/AppButton/AppButton'
 
 interface ErrorComponentProps {
   className?: string

@@ -3,9 +3,9 @@ import { counterReducer } from 'entity/Counter'
 import { userReducer } from 'entity/User'
 import { createReducerManager } from './reducerManager'
 import { type ThunkExtraArg, type StateSchema } from './StateSchema'
-import { $api } from 'shared/api/api'
-import { uiReducer } from 'features/UI'
-import { rtkApi } from 'shared/api/rtkApi'
+import { $api } from '@/shared/api/api'
+import { uiReducer } from '@/features/UI'
+import { rtkApi } from '@/shared/api/rtkApi'
 
 export function createReduxStore (
   initialState?: StateSchema,

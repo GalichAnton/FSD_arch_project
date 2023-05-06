@@ -8,6 +8,8 @@ export function buildResolvers (options: BuildOptions): webpack.Configuration['r
     modules: [options.paths.src, 'node_modules'],
     mainFiles: ['index'],
 
-    alias: {},
+    alias: {
+      '@': options.paths.src,
+    },
   }
 }

@@ -1,5 +1,5 @@
 import React, { memo, type ReactNode, type ButtonHTMLAttributes } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './AppButton.module.scss'
 
 export enum AppButtonVariant {

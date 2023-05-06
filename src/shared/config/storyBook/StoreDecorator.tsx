@@ -1,11 +1,11 @@
 import { type Story } from '@storybook/react'
-import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
+import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import { type ReducersMapObject, type DeepPartial } from '@reduxjs/toolkit'
-import { loginReducer } from 'features/AurhByUserName/model/slice/loginSlice'
+import { loginReducer } from '@/features/AurhByUserName/model/slice/loginSlice'
 import { articleDetailsReducer } from 'entity/Article/model/slice/articleDetailsSlice'
-import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice'
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices'
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
+import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice'
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices'
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice'
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,

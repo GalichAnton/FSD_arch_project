@@ -4,7 +4,7 @@ import {
 } from '@reduxjs/toolkit'
 
 import { type Comment } from 'entity/Comment'
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider'
 
 import {
   fetchCommentsByArticleId,

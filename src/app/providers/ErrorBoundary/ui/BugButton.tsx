@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { AppButton } from 'shared/ui/AppButton/AppButton'
+import { AppButton } from '@/shared/ui/AppButton/AppButton'
 
 // Для тестирования ErrorBoundary
 export const BugButton = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
+import { Theme } from '@/app/providers/ThemeProvider'
 import { ProfilePage } from '../../ProfilePage'
-import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
 import { Country } from 'entity/Country'
 import { Currency } from 'entity/Currency'
 
