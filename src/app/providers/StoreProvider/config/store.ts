@@ -1,6 +1,6 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
-import { counterReducer } from 'entity/Counter'
-import { userReducer } from 'entity/User'
+import { counterReducer } from '@/entity/Counter'
+import { userReducer } from '@/entity/User'
 import { createReducerManager } from './reducerManager'
 import { type ThunkExtraArg, type StateSchema } from './StateSchema'
 import { $api } from '@/shared/api/api'

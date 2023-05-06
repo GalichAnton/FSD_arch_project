@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './SideBarItem.module.scss'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entity/User'
+import { getUserAuthData } from '@/entity/User'
 import { type SidebarItemType } from '../../model/types/sidebar'
 
 interface SidebarItemProps {

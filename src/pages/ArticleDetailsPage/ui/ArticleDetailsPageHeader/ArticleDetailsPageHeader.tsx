@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { RoutePath } from '@/shared/config/routerConfig/routeConfig'
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton/AppButton'
 import { useSelector } from 'react-redux'
-import { getArticleDetailsData } from 'entity/Article/model/selectors/articleDetails'
+import { getArticleDetailsData } from '@/entity/Article/model/selectors/articleDetails'
 import { getCanEditArticle } from '../../model/selectors/article'
 import { HStack } from '@/shared/ui/Stack'
 

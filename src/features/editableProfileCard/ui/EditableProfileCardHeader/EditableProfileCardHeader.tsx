@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { HStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text/Text'
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton/AppButton'
-import { getUserAuthData } from 'entity/User'
+import { getUserAuthData } from '@/entity/User'
 import { profileActions } from '../../model/slice/profileSlice'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'

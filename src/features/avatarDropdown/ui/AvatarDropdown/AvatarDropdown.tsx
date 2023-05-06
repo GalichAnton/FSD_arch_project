@@ -7,7 +7,7 @@ import { Dropdown } from '@/shared/ui/Popups'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entity/User'
+} from '@/entity/User'
 
 interface AvatarDropdownProps {
   className?: string

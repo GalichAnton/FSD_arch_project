@@ -4,8 +4,8 @@ import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
 import { Theme } from '@/app/providers/ThemeProvider'
 import { ProfilePage } from '../../ProfilePage'
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
-import { Country } from 'entity/Country'
-import { Currency } from 'entity/Currency'
+import { Country } from '@/entity/Country'
+import { Currency } from '@/entity/Currency'
 
 export default {
   title: 'pages/ProfilePage',

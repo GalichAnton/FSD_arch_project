@@ -5,7 +5,7 @@ import { Navbar } from '@/widgets/Navbar'
 import { SideBar } from '@/widgets/SideBar'
 import { useTheme } from './providers/ThemeProvider'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserInited, userActions } from 'entity/User'
+import { getUserInited, userActions } from '@/entity/User'
 
 const App = () => {
   const { theme } = useTheme()

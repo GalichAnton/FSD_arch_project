@@ -4,7 +4,7 @@ import {
   type ArticleType,
   type Article,
   type ArticleView,
-} from 'entity/Article'
+} from '@/entity/Article'
 import { type SortOrder } from '@/shared/types'
 
 export interface ArticlesPageSchema extends EntityState<Article> {
