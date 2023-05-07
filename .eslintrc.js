@@ -52,7 +52,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
-    'fsd-arch-plugin/path-checker': 'error',
+    'fsd-arch-plugin/path-checker': ['error', { alias: '@' }],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
   },
