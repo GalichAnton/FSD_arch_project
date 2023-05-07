@@ -4,7 +4,7 @@ export {
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 
 export {
-  type Article, ArticleView, ArticleSortField, ArticleType,
+  type Article, ArticleView, ArticleSortField, ArticleType, ArticleBlockType,
 } from './model/types/article'
 export { ArticleList } from './ui/ArticleList/ArticleList'
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector'

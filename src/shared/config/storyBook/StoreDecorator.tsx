@@ -1,3 +1,4 @@
+/* eslint-disable fsd-arch-plugin/public-api-imports */
 import { type Story } from '@storybook/react'
 import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import { type ReducersMapObject, type DeepPartial } from '@reduxjs/toolkit'
