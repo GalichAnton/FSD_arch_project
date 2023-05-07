@@ -11,7 +11,7 @@ import { useModal } from '@/shared/lib/hooks/useModal/useModal'
 interface ModalProps {
   className?: string
   children?: ReactNode
-  onClose: () => void
+  onClose?: () => void
   isOpen?: boolean
   lazy?: boolean
 }
