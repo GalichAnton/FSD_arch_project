@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -6,8 +6,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { type SortOrder } from '@/shared/types'
 import { Select, type SelectOption } from '@/shared/ui/Select'
 
-import { ArticleSortField } from '../../model/types/article'
 import cls from './ArticleSortSelector.module.scss'
+import { ArticleSortField } from '../../model/types/article'
 
 interface ArticleSortSelectorProps {
   className?: string
@@ -23,7 +23,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   } = props
   const { t } = useTranslation()
 
-  const orderOptions = useMemo<SelectOption[]>(() => [
+  const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(() => [
     {
       value: 'asc',
       content: t('возрастанию'),
@@ -34,7 +34,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     },
   ], [t])
 
-  const sortFieldOptions = useMemo<SelectOption[]>(() => [
+  const sortFieldOptions = useMemo<Array<SelectOption<ArticleSortField>>>(() => [
     {
       value: ArticleSortField.CREATED,
       content: t('дате создания'),
@@ -49,27 +49,19 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     },
   ], [t])
 
-  const changeSortHandler = useCallback((newSort: string) => {
-    onChangeSort(newSort as ArticleSortField)
-  }, [onChangeSort])
-
-  const changeOrderHandler = useCallback((newOrder: string) => {
-    onChangeOrder(newOrder as SortOrder)
-  }, [onChangeOrder])
-
   return (
       <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
         <Select
           options={sortFieldOptions}
           label={t('Сортировать ПО')}
           value={sort}
-          onChange={changeSortHandler}
+          onChange={onChangeSort}
         />
         <Select
           options={orderOptions}
           label={t('по')}
           value={order}
-          onChange={changeOrderHandler}
+          onChange={onChangeOrder}
           className={cls.order}
         />
       </div>
