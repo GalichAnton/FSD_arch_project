@@ -60,6 +60,13 @@ module.exports = {
         testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
       },
     ],
+    'fsd-arch-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StateSchema'],
+      },
+    ],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
   },

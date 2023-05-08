@@ -5,9 +5,9 @@ import { Text } from '@/shared/ui/Text/Text'
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 import cls from './CommentCard.module.scss'
 import { type Comment } from '../../model/types/comment'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { VStack } from '@/shared/ui/Stack'
+import { RoutePath } from '@/shared/const/router'
 
 interface CommentCardProps {
   className?: string

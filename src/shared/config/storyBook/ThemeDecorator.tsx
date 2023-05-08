@@ -1,5 +1,7 @@
+/* eslint-disable fsd-arch-plugin/layer-imports */
+import { ThemeProvider } from '@/app/providers/ThemeProvider'
+import { type Theme } from '@/shared/const/theme'
 import { type Story } from '@storybook/react'
-import { ThemeProvider, type Theme } from '@/app/providers/ThemeProvider'
 
 export const ThemeDecorator = (theme: Theme) => (Story: Story) => {
   return (

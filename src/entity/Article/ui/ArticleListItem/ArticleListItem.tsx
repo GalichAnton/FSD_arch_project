@@ -7,14 +7,14 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { Card } from '@/shared/ui/Card/Card'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton/AppButton'
-import { useNavigate } from 'react-router-dom'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import cls from './ArticleListItem.module.scss'
 import {
   type Article, ArticleBlockType, type ArticleTextBlock, ArticleView,
 } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { useNavigate } from 'react-router-dom'
+import { RoutePath } from '@/shared/const/router'
 
 interface ArticleListItemProps {
   className?: string
@@ -29,7 +29,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const navigate = useNavigate()
 
   const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.ARTICLE_DETAILS + article.id)
+    navigate(`${RoutePath.ARTICLE_DETAILS}${article.id}`)
   }, [article.id, navigate])
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />
