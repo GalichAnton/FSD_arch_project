@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/Card/Card'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton/AppButton'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from '@/shared/config/routerConfig/routeConfig'
+import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import cls from './ArticleListItem.module.scss'
 import {
   type Article, ArticleBlockType, type ArticleTextBlock, ArticleView,

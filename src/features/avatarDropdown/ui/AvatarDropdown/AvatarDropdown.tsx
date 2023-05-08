@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import React, { memo, useCallback } from 'react'
-import { RoutePath } from '@/shared/config/routerConfig/routeConfig'
+import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
 import { useDispatch, useSelector } from 'react-redux'

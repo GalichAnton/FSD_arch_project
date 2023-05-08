@@ -1,4 +1,3 @@
-import { type RouteProps } from 'react-router-dom'
 import { MainPage } from '@/pages/MainPage'
 import { AboutPage } from '@/pages/AboutPage'
 import { Suspense } from 'react'
@@ -11,40 +10,8 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage'
 import { AdminPanelPage } from '@/pages/AdminPanelPage'
 import { ForbiddenPage } from '@/pages/ForbiddenPage'
 import { UserRole } from '@/entity/User'
-
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean
-  roles?: UserRole[]
-}
-
-export const AppRoutes = {
-  MAIN: '/',
-  ABOUT: 'about',
-  PROFILE: 'profile',
-  ARTICLES: '/articles',
-  ARTICLE_DETAILS: '/article_details',
-  ARTICLE_CREATE: '/article_create',
-  ARTICLE_EDIT: '/article_edit',
-  ADMIN_PANEL: '/admin_panel',
-  FORBIDDEN: '/forbidden',
-  NOT_FOUND: '*',
-} as const
-
-type AppRoutesType = keyof typeof AppRoutes
-
-export const RoutePath: Record<AppRoutesType, string> = {
-  MAIN: '/',
-  ABOUT: '/about',
-  PROFILE: '/profile/',
-  ARTICLES: '/articles',
-  ARTICLE_DETAILS: '/articles/', // + :id,
-  ARTICLE_CREATE: '/articles/new',
-  ARTICLE_EDIT: '/articles/:id/edit',
-  ADMIN_PANEL: '/admin_panel',
-  FORBIDDEN: '/forbidden',
-
-  NOT_FOUND: '*',
-}
+import { type AppRoutesProps } from '@/shared/types/router'
+import { type AppRoutesType, RoutePath } from '@/shared/const/router'
 
 export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
   MAIN: {
