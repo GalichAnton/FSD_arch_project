@@ -1,7 +1,7 @@
 import { addDecorator } from '@storybook/react'
 import { StyleDecorator } from 'shared/config/storyBook/StyleDecorator'
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import { Theme } from 'shared/const/theme'
 import { RouterDecorator } from 'shared/config/storyBook/RouterDecorator'
 import {
   SuspenseDecorator,

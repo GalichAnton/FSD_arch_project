@@ -2,7 +2,6 @@ import { type AnyAction, type EnhancedStore, type Reducer, type ReducersMapObjec
 import { type AxiosInstance } from 'axios'
 
 import { type ArticleDetailsSchema } from '@/entity/Article'
-import { type CounterSchema } from '@/entity/Counter'
 import { type UserSchema } from '@/entity/User'
 import { type AddCommentFormSchema } from '@/features/addCommentForm'
 import { type LoginSchema } from '@/features/AurhByUserName'
@@ -13,7 +12,6 @@ import { type ArticlesPageSchema } from '@/pages/ArticlesPage'
 import { type rtkApi } from '@/shared/api/rtkApi'
 
 export interface StateSchema {
-  counter: CounterSchema
   user: UserSchema
   ui: UISchema
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
