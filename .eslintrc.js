@@ -53,7 +53,13 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
     'fsd-arch-plugin/path-checker': ['error', { alias: '@' }],
-    'fsd-arch-plugin/public-api-imports': ['error', { alias: '@' }],
+    'fsd-arch-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
+    ],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
   },
