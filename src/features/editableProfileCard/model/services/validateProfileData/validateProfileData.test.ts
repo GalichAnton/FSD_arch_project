@@ -1,5 +1,6 @@
 import { Country } from '@/entity/Country'
 import { Currency } from '@/entity/Currency'
+
 import { ValidateProfileError } from '../../types/editableProfileCardSchema'
 import { validateProfileData } from './validateProfileData'
 

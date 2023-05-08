@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { EditableProfileCardHeader } from './EditableProfileCardHeader'
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
+
+import { EditableProfileCardHeader } from './EditableProfileCardHeader'
 
 export default {
   title: 'features/editableProfileCard/EditableProfileCardHeader',

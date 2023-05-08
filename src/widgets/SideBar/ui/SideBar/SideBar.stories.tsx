@@ -1,10 +1,12 @@
 import React from 'react'
+
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { SideBar } from './SideBar'
-import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
+
+import { SideBar } from './SideBar'
 
 export default {
   title: 'widget/SideBar',

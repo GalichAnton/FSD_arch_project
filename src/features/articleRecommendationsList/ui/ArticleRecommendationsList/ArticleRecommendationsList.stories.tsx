@@ -1,10 +1,12 @@
 import React from 'react'
+
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import withMock from 'storybook-addon-mock'
+
+import { type Article } from '@/entity/Article'
+import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
-import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
-import { type Article } from '@/entity/Article'
-import withMock from 'storybook-addon-mock'
 
 export default {
   title: 'features/ArticleRecommendationsList',

@@ -1,7 +1,9 @@
-import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
 import React, {
   type InputHTMLAttributes, memo,
 } from 'react'
+
+import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
+
 import cls from './Input.module.scss'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>

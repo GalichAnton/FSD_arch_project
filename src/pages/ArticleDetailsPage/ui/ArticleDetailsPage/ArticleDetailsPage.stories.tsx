@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react'
+
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { ArticleDetailsPage } from './ArticleDetailsPage'
-import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
 import { type Article, ArticleBlockType, ArticleType } from '@/entity/Article'
+import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
+
+import { ArticleDetailsPage } from './ArticleDetailsPage'
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPage',

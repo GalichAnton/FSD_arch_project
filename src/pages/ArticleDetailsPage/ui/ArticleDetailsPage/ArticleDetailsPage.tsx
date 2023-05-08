@@ -1,17 +1,20 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
-import cls from './ArticleDetailsPage.module.scss'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { ArticleDetails } from '@/entity/Article'
+
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { Page } from '@/widgets/Page'
-import { articleDetailsPageReducer } from '../../model/slices'
-import { VStack } from '@/shared/ui/Stack'
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
-import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
+
+import { ArticleDetails } from '@/entity/Article'
 import { ArticleRating } from '@/features/articleRating'
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { VStack } from '@/shared/ui/Stack'
+import { Page } from '@/widgets/Page'
+
+import { articleDetailsPageReducer } from '../../model/slices'
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string

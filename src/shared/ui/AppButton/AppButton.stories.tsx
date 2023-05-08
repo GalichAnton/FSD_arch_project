@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { AppButton, AppButtonSize, AppButtonVariant } from './AppButton'
 import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
+
+import { AppButton, AppButtonSize, AppButtonVariant } from './AppButton'
 
 export default {
   title: 'shared/AppButton',

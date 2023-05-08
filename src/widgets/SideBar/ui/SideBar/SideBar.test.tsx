@@ -1,7 +1,10 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { SideBar } from './SideBar'
-import '@testing-library/jest-dom'
+
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
+
+import { SideBar } from './SideBar'
+
+import '@testing-library/jest-dom'
 
 describe('SideBar', () => {
   test('loads and displays greeting', async () => {

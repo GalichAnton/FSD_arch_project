@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
-import { ArticleDetailsComments } from './ArticleDetailsComments'
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
+
+import { ArticleDetailsComments } from './ArticleDetailsComments'
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsComments',

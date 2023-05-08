@@ -1,6 +1,8 @@
-import { type StateSchema } from '@/app/providers/StoreProvider'
-import { getProfileError } from './getProfileError'
 import { type DeepPartial } from '@reduxjs/toolkit'
+
+import { type StateSchema } from '@/app/providers/StoreProvider'
+
+import { getProfileError } from './getProfileError'
 
 describe('getProfileError.test', () => {
   test('should return error', () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { AppLink, AppLinkVariant } from './AppLink'

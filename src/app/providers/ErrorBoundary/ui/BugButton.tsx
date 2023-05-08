@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import { AppButton } from '@/shared/ui/AppButton'
 
 // Для тестирования ErrorBoundary

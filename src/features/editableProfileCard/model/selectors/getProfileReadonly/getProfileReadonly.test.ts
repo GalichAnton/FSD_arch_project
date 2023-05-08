@@ -1,6 +1,8 @@
-import { type StateSchema } from '@/app/providers/StoreProvider'
-import { getProfileReadonly } from './getProfileReadonly'
 import { type DeepPartial } from '@reduxjs/toolkit'
+
+import { type StateSchema } from '@/app/providers/StoreProvider'
+
+import { getProfileReadonly } from './getProfileReadonly'
 
 describe('getProfileReadonly.test', () => {
   test('should work with filled state', () => {

@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
-import LightIcon from '@/shared/assets/icons/theme-light.svg'
+
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg'
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton'
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
+import LightIcon from '@/shared/assets/icons/theme-light.svg'
 import { Theme } from '@/shared/const/theme'
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
+import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton'
 
 export const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme()

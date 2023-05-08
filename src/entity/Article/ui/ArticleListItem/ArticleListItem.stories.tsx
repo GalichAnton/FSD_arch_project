@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 import React from 'react'
+
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { ArticleListItem } from './ArticleListItem'
 import { type Article, ArticleView } from '../../model/types/article'
+import { ArticleListItem } from './ArticleListItem'
 
 export default {
   title: 'entities/Article/ArticleListItem',

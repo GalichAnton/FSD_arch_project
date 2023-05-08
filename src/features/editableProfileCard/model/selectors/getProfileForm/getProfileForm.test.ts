@@ -1,8 +1,10 @@
+import { type DeepPartial } from '@reduxjs/toolkit'
+
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { Country } from '@/entity/Country'
 import { Currency } from '@/entity/Currency'
+
 import { getProfileForm } from './getProfileForm'
-import { type DeepPartial } from '@reduxjs/toolkit'
 
 describe('getProfileForm.test', () => {
   test('should return error', () => {

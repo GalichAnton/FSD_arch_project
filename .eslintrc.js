@@ -29,8 +29,11 @@ module.exports = {
     'react',
     'i18next',
     'fsd-arch-plugin',
+    'unused-imports',
+    'import',
   ],
   rules: {
+    'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/strict-boolean-expressions': ['off'],
     '@typescript-eslint/prefer-nullish-coalescing': ['off'],
@@ -69,5 +72,29 @@ module.exports = {
     ],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
   },
 }

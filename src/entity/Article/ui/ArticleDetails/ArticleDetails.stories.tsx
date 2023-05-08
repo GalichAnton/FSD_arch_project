@@ -1,10 +1,11 @@
 /* eslint-disable max-len */
 import React from 'react'
+
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
-import { type Article } from '../../model/types/article'
-import { ArticleBlockType, ArticleType } from '../../model/types/article'
+
+import { type Article, ArticleBlockType, ArticleType } from '../../model/types/article'
 import { ArticleDetails } from './ArticleDetails'
 
 export default {

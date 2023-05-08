@@ -1,10 +1,13 @@
-import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
+
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+
 import { RatingCard } from '@/entity/Rating'
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
 import { getUserAuthData } from '@/entity/User'
 import { Skeleton } from '@/shared/ui/Skeleton'
+
+import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
 
 export interface ArticleRatingProps {
   className?: string
