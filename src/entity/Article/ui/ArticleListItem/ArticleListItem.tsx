@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleDetails } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton'
 import { AppLink } from '@/shared/ui/AppLink'
@@ -13,11 +13,11 @@ import { Card } from '@/shared/ui/Card'
 import { Icon } from '@/shared/ui/Icon'
 import { Text } from '@/shared/ui/Text'
 
-import cls from './ArticleListItem.module.scss'
 import {
   type Article, ArticleBlockType, type ArticleTextBlock, ArticleView,
 } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {
   className?: string
@@ -32,7 +32,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const navigate = useNavigate()
 
   const onOpenArticle = useCallback(() => {
-    navigate(`${RoutePath.ARTICLE_DETAILS}${article.id}`)
+    navigate(getRouteArticleDetails(article.id))
   }, [article.id, navigate])
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />
@@ -65,7 +65,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               <div className={cls.footer}>
               <AppLink
                 target={target}
-                to={RoutePath.ARTICLE_DETAILS + article.id}
+                to={getRouteArticleDetails(article.id)}
               >
                 <AppButton onClick={onOpenArticle} variant={AppButtonVariant.OUTLINE}>
                   {t('Читать далее...')}
@@ -81,7 +81,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
         <AppLink
           target={target}
-          to={RoutePath.ARTICLE_DETAILS + article.id}
+          to={getRouteArticleDetails(article.id)}
           className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
           <Card className={cls.card} onClick={onOpenArticle}>
