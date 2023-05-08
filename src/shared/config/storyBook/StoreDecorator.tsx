@@ -6,13 +6,15 @@ import { articleDetailsReducer } from '@/entity/Article/testing'
 import { addCommentFormReducer } from '@/features/addCommentForm/testing'
 import { loginReducer } from '@/features/AurhByUserName/testing'
 import { profileReducer } from '@/features/editableProfileCard/testing'
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing'
+import { type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsPage: articleDetailsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 }
 
 export const StoreDecorator = (
