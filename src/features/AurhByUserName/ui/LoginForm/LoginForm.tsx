@@ -4,8 +4,8 @@ import { useCallback, type FC, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton/AppButton'
-import { Input } from '@/shared/ui/Input/Input'
+import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton'
+import { Input } from '@/shared/ui/Input'
 import cls from './LoginForm.module.scss'
 import {
   getLoginError,
@@ -13,7 +13,7 @@ import {
   getLoginPassword,
   getLoginUsername,
 } from '../../model/selectors/getLoginState/getLoginState'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 

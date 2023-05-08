@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink'
+import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink'
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './SideBarItem.module.scss'
