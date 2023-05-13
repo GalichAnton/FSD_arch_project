@@ -80,7 +80,7 @@ jobs:
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
-            - name: Setup Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
       - name: Upload artifact
