@@ -9,7 +9,7 @@ import { Page } from '@/widgets/Page'
 export const MainPage = () => {
   const { t } = useTranslation()
   return (
-    <Page>
+    <Page data-testid='MainPage'>
       <BugButton/>
       {t('Главная страница')}
     </Page>

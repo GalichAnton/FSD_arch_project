@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useTranslation } from 'react-i18next'
 
 import { Page } from '@/widgets/Page'
@@ -7,7 +5,7 @@ import { Page } from '@/widgets/Page'
 export const AboutPage = () => {
   const { t } = useTranslation('about')
   return (
-    <Page>
+    <Page data-testid='AboutPage'>
       {t('О нас')}
     </Page>
   )

@@ -13,11 +13,10 @@ import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
-import { type SortOrder } from '@/shared/types'
+import { type SortOrder } from '@/shared/types/sort'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
 
-import cls from './ArticlesPageFilters.module.scss'
 import {
   getArticlesPageOrder, getArticlesPageSearch,
   getArticlesPageSort, getArticlesPageType,
@@ -25,6 +24,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
+import cls from './ArticlesPageFilters.module.scss'
 
 interface ArticlesPageFiltersProps {
   className?: string
