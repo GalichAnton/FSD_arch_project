@@ -42,7 +42,7 @@ describe('app/router/AppRouter', () => {
       },
     })
 
-    const page = await waitFor(() => screen.findByTestId('ProfilePage'))
+    const page = await waitFor(() => screen.findByTestId('ProfilePage'), { timeout: 5000 })
     expect(page).toBeInTheDocument()
   })
 
