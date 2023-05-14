@@ -20,10 +20,14 @@ module.exports = {
       'i18next/no-literal-string': 'off',
     },
   }],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json'],
+    project: './tsconfig.json'
   },
   plugins: [
     'react',

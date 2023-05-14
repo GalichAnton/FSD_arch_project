@@ -29,7 +29,6 @@ export function buildBabelLoader ({ isDev, isTsx }: BuildBabelLoaderProps) {
               props: ['data-testid'],
             },
           ],
-          isDev && require.resolve('react-refresh/babel'),
         ].filter(Boolean),
       },
     },

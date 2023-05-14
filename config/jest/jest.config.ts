@@ -11,6 +11,7 @@ export default {
   coveragePathIgnorePatterns: [
     '\\\\node_modules\\\\',
   ],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
   testEnvironment: 'jsdom',
   moduleDirectories: [
     'node_modules',
@@ -38,7 +39,7 @@ export default {
     ['jest-html-reporters', {
       publicPath: '<rootDir>/reports/unit',
       filename: 'report.html',
-      openReport: true,
+      // openReport: true,
       inlineSource: true,
     }],
   ],

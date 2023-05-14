@@ -5,7 +5,6 @@ import { Listbox as HListBox } from '@headlessui/react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { type DropdownDirection } from '@/shared/types/ui'
 
-import { AppButton } from '../../../AppButton/AppButton'
 import { HStack } from '../../../Stack'
 import { mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
@@ -53,9 +52,7 @@ export function ListBox (props: ListBoxProps) {
                 onChange={onChange}
             >
                 <HListBox.Button className={cls.trigger}>
-                    <AppButton disabled={readonly}>
-                        {value ?? defaultValue}
-                    </AppButton>
+                    {value ?? defaultValue}
                 </HListBox.Button>
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
