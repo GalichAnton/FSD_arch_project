@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 
 import { UserRole } from '@/entity/User'
 import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router'
@@ -42,7 +42,7 @@ describe('app/router/AppRouter', () => {
       },
     })
 
-    const page = await screen.findByTestId('ProfilePage')
+    const page = await waitFor(() => screen.findByTestId('ProfilePage'))
     expect(page).toBeInTheDocument()
   })
 
