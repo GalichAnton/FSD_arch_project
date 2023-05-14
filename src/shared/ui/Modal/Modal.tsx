@@ -53,7 +53,9 @@ export const Modal: FC<ModalProps> = (props) => {
     <Portal>
       <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
       <Overlay onClick={close} />
-        <div className={cls.content} >
+        <div
+          className={cls.content}
+        >
           {children}
         </div>
       </div>
