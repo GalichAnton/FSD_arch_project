@@ -27,7 +27,7 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json'
+    project: ['./tsconfig.json', 'cypress/tsconfig.json'],
   },
   plugins: [
     'react',
@@ -60,6 +60,8 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
     'fsd-arch-plugin/path-checker': ['error', { alias: '@' }],
+    '@typescript-eslint/no-namespace' :'off',
+    '@typescript-eslint/method-signature-style': 'off',
     'fsd-arch-plugin/public-api-imports': [
       'error',
       {

@@ -43,6 +43,8 @@
   "include": [
     "./config/**/*",
     "./src/**/*.ts",
-    "./src/**/*.tsx"
+    "./src/**/*.tsx", 
+    "./cypress.config.ts"
   ]
+
 }
