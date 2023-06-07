@@ -8,18 +8,21 @@ module.exports = {
     'plugin:react/recommended',
     'standard-with-typescript',
     'plugin:i18next/recommended',
+    'prettier',
   ],
   globals: {
     __IS_DEV__: true,
     __API__: true,
     __PROJECT__: true,
   },
-  overrides: [{
-    files: ['**/src/**/*.test.{ts,tsx}'],
-    rules: {
-      'i18next/no-literal-string': 'off',
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
     },
-  }],
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -29,13 +32,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json', 'cypress/tsconfig.json'],
   },
-  plugins: [
-    'react',
-    'i18next',
-    'fsd-arch-plugin',
-    'unused-imports',
-    'import',
-  ],
+  plugins: ['react', 'i18next', 'fsd-arch-plugin', 'unused-imports', 'import'],
   rules: {
     'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -60,20 +57,28 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     'n/no-callback-literal': 'off',
     'fsd-arch-plugin/path-checker': ['error', { alias: '@' }],
-    '@typescript-eslint/no-namespace' :'off',
+    '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/method-signature-style': 'off',
     'fsd-arch-plugin/public-api-imports': [
       'error',
       {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx',
+        ],
       },
     ],
     'fsd-arch-plugin/layer-imports': [
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StateSchema'],
+        ignoreImportPatterns: [
+          '**/StoreProvider',
+          '**/testing',
+          '**/StateSchema',
+        ],
       },
     ],
     '@typescript-eslint/await-thenable': 'off',
@@ -103,4 +108,4 @@ module.exports = {
       },
     ],
   },
-}
+};

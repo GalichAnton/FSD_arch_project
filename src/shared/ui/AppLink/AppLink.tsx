@@ -1,10 +1,10 @@
-import React, { memo, type ReactNode } from 'react'
+import React, { memo, type ReactNode } from 'react';
 
-import { Link, type LinkProps } from 'react-router-dom'
+import { Link, type LinkProps } from 'react-router-dom';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cls from './AppLink.module.scss'
+import cls from './AppLink.module.scss';
 
 export enum AppLinkVariant {
   PRIMARY = 'primary',
@@ -12,9 +12,9 @@ export enum AppLinkVariant {
 }
 
 interface AppLinkProps extends LinkProps {
-  className?: string
-  variant?: AppLinkVariant
-  children?: ReactNode
+  className?: string;
+  variant?: AppLinkVariant;
+  children?: ReactNode;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -24,7 +24,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     variant = AppLinkVariant.PRIMARY,
     to,
     ...otherProps
-  } = props
+  } = props;
 
   return (
     <Link
@@ -34,7 +34,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     >
       {children}
     </Link>
-  )
-})
+  );
+});
 
-AppLink.displayName = 'AppLink'
+AppLink.displayName = 'AppLink';

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { AppImage } from './AppImage'
+import { AppImage } from './AppImage';
 
 export default {
   title: 'shared/AppImage',
@@ -10,9 +10,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof AppImage>
+} as ComponentMeta<typeof AppImage>;
 
-const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />
+const Template: ComponentStory<typeof AppImage> = (args) => (
+  <AppImage {...args} />
+);
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal = Template.bind({});
+Normal.args = {};

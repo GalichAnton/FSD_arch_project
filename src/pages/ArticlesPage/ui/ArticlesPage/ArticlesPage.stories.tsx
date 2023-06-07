@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { ArticlesPage } from './ArticlesPage'
+import { ArticlesPage } from './ArticlesPage';
 
 export default {
   title: 'shared/ArticlesPage',
@@ -10,9 +10,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticlesPage>
+} as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+  <ArticlesPage {...args} />
+);
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal = Template.bind({});
+Normal.args = {};

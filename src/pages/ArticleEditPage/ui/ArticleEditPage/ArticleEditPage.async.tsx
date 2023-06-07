@@ -1,5 +1,8 @@
-import { lazy } from 'react'
+import { lazy } from 'react';
 
-export const ArticleEditPageAsync =
-  lazy(async () => await import(/* webpackChunkName: "ArticleEditPageAsync" */'./ArticleEditPage')
-    .then(module => ({ default: module.ArticleEditPage })))
+export const ArticleEditPageAsync = lazy(
+  async () =>
+    await import(
+      /* webpackChunkName: "ArticleEditPageAsync" */ './ArticleEditPage'
+    ).then((module) => ({ default: module.ArticleEditPage })),
+);

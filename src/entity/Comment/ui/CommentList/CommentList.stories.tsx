@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { CommentList } from './CommentList'
+import { CommentList } from './CommentList';
 
 export default {
   title: 'shared/CommentList',
@@ -10,9 +10,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof CommentList>
+} as ComponentMeta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />
+const Template: ComponentStory<typeof CommentList> = (args) => (
+  <CommentList {...args} />
+);
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal = Template.bind({});
+Normal.args = {};

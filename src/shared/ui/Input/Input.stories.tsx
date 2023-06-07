@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { Input } from '../../ui/Input/Input'
+import { Input } from '../../ui/Input/Input';
 
 export default {
   title: 'shared/Input',
@@ -10,12 +10,12 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Input>
+} as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   placeholder: 'Type',
   value: '12345',
-}
+};

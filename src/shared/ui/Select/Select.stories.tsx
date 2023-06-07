@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { Select } from '../../ui/Select/Select'
+import { Select } from '../../ui/Select/Select';
 
 export default {
   title: 'shared/Select',
@@ -10,15 +10,15 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Select>
+} as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   label: 'Укажите значение',
   options: [
     { value: '123', content: 'Первый пункт' },
     { value: '1234', content: 'Второй пункт' },
   ],
-}
+};

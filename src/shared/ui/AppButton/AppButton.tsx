@@ -1,8 +1,8 @@
-import React, { memo, type ReactNode, type ButtonHTMLAttributes } from 'react'
+import React, { memo, type ReactNode, type ButtonHTMLAttributes } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cls from './AppButton.module.scss'
+import cls from './AppButton.module.scss';
 
 export enum AppButtonVariant {
   CLEAR = 'clear',
@@ -20,12 +20,12 @@ export enum AppButtonSize {
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  variant?: AppButtonVariant
-  square?: boolean
-  size?: AppButtonSize
-  children?: ReactNode
-  fullWidth?: boolean
+  className?: string;
+  variant?: AppButtonVariant;
+  square?: boolean;
+  size?: AppButtonSize;
+  children?: ReactNode;
+  fullWidth?: boolean;
 }
 
 export const AppButton = memo((props: AppButtonProps) => {
@@ -38,20 +38,23 @@ export const AppButton = memo((props: AppButtonProps) => {
     size = AppButtonSize.M,
     fullWidth,
     ...otherProps
-  } = props
+  } = props;
 
   const mods: Record<string, boolean> = {
     [cls.square]: square,
     [cls[size]]: true,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
-  }
+  };
 
   return (
-    <button className={classNames(cls.appButton, mods, [className, cls[variant]])} {...otherProps}>
+    <button
+      className={classNames(cls.appButton, mods, [className, cls[variant]])}
+      {...otherProps}
+    >
       {children}
     </button>
-  )
-})
+  );
+});
 
-AppButton.displayName = 'AppButton'
+AppButton.displayName = 'AppButton';

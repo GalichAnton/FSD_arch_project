@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator';
 
-import { LoginForm } from './LoginForm'
+import { LoginForm } from './LoginForm';
 
 export default {
   title: 'features/LoginForm',
@@ -12,24 +12,32 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof LoginForm>
+} as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
-export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'asd' },
-})]
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'asd' },
+  }),
+];
 
-export const withError = Template.bind({})
-withError.args = {}
-withError.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'asd', error: 'ERROR' },
-})]
+export const withError = Template.bind({});
+withError.args = {};
+withError.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'asd', error: 'ERROR' },
+  }),
+];
 
-export const Loading = Template.bind({})
-Loading.args = {}
-Loading.decorators = [StoreDecorator({
-  loginForm: { isLoading: true },
-})]
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [
+  StoreDecorator({
+    loginForm: { isLoading: true },
+  }),
+];

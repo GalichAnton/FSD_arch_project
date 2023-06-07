@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { AppButton } from '../../../AppButton/AppButton'
-import { Dropdown } from './Dropdown'
+import { AppButton } from '../../../AppButton/AppButton';
+import { Dropdown } from './Dropdown';
 
 export default {
   title: 'shared/Dropdown',
@@ -11,11 +11,13 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Dropdown>
+} as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+  <Dropdown {...args} />
+);
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 Normal.args = {
   trigger: <AppButton>Open</AppButton>,
   items: [
@@ -29,4 +31,4 @@ Normal.args = {
       content: 'third',
     },
   ],
-}
+};

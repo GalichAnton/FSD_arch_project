@@ -1,44 +1,47 @@
-import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react'
+import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react';
 
-import { ErrorComponent } from '@/widgets/ErrorComponent'
+import { ErrorComponent } from '@/widgets/ErrorComponent';
 
 interface ErrorBoundaryProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor (props: ErrorBoundaryProps) {
-    super(props)
-    this.state = { hasError: false }
+export class ErrorBoundary extends Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError (error: Error) {
+  static getDerivedStateFromError(error: Error) {
     // Update state so the next render will show the fallback UI.
-    console.log(error)
-    return { hasError: true }
+    console.log(error);
+    return { hasError: true };
   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
-    console.log(error, errorInfo)
+    console.log(error, errorInfo);
   }
 
-  render () {
-    const { hasError } = this.state
-    const { children } = this.props
+  render() {
+    const { hasError } = this.state;
+    const { children } = this.props;
     if (hasError) {
       // You can render any custom fallback UI
       return (
         <Suspense fallback={''}>
-          <ErrorComponent/>
+          <ErrorComponent />
         </Suspense>
-      )
+      );
     }
 
-    return children
+    return children;
   }
 }

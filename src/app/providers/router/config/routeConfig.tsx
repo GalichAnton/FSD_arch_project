@@ -1,15 +1,15 @@
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
-import { UserRole } from '@/entity/User'
-import { AboutPage } from '@/pages/AboutPage'
-import { AdminPanelPage } from '@/pages/AdminPanelPage'
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage'
-import { ArticleEditPage } from '@/pages/ArticleEditPage'
-import { ArticlesPage } from '@/pages/ArticlesPage'
-import { ForbiddenPage } from '@/pages/ForbiddenPage'
-import { MainPage } from '@/pages/MainPage'
-import { NotFoundPage } from '@/pages/NotFoundPage'
-import { ProfilePage } from '@/pages/ProfilePage'
+import { UserRole } from '@/entity/User';
+import { AboutPage } from '@/pages/AboutPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import {
   getRouteMain,
   type AppRoutesType,
@@ -21,22 +21,30 @@ import {
   getRouteAdmin,
   getRouteArticleEdit,
   getRouteArticleCreate,
-} from '@/shared/const/router'
-import { type AppRoutesProps } from '@/shared/types/router'
-import { PageLoader } from '@/widgets/PageLoader'
+} from '@/shared/const/router';
+import { type AppRoutesProps } from '@/shared/types/router';
+import { PageLoader } from '@/widgets/PageLoader';
 
 export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
   MAIN: {
     path: getRouteMain(),
-    element: <Suspense fallback={<PageLoader/>}><MainPage /></Suspense>,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <MainPage />
+      </Suspense>
+    ),
   },
   ABOUT: {
     path: getRouteAbout(),
-    element: <Suspense fallback={<PageLoader/>}><AboutPage /></Suspense>,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <AboutPage />
+      </Suspense>
+    ),
   },
   PROFILE: {
     path: getRouteProfile(':id'),
-    element: <ProfilePage/>,
+    element: <ProfilePage />,
     authOnly: true,
   },
   ARTICLES: {
@@ -76,4 +84,4 @@ export const RouteConfig: Record<AppRoutesType, AppRoutesProps> = {
     path: '*',
     element: <NotFoundPage />,
   },
-}
+};

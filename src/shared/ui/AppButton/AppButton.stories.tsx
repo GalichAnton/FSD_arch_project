@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
-import { AppButton, AppButtonSize, AppButtonVariant } from './AppButton'
+import { AppButton, AppButtonSize, AppButtonVariant } from './AppButton';
 
 export default {
   title: 'shared/AppButton',
@@ -13,71 +13,73 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof AppButton>
+} as ComponentMeta<typeof AppButton>;
 
-const Template: ComponentStory<typeof AppButton> = (args) => <AppButton {...args} />
+const Template: ComponentStory<typeof AppButton> = (args) => (
+  <AppButton {...args} />
+);
 
-export const Clear = Template.bind({})
+export const Clear = Template.bind({});
 Clear.args = {
   variant: AppButtonVariant.CLEAR,
   children: 'AppButton',
-}
+};
 
-export const ClearInverted = Template.bind({})
+export const ClearInverted = Template.bind({});
 ClearInverted.args = {
   variant: AppButtonVariant.CLEAR_INVERTED,
   children: 'AppButton',
-}
+};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   children: 'AppButton',
-}
-Primary.decorators = [ThemeDecorator(Theme.DARK)]
+};
+Primary.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Outline = Template.bind({})
+export const Outline = Template.bind({});
 Outline.args = {
   variant: AppButtonVariant.OUTLINE,
   children: 'AppButton',
-}
+};
 
-export const Background = Template.bind({})
+export const Background = Template.bind({});
 Background.args = {
   variant: AppButtonVariant.BACKGROUND_INVERTED,
   children: 'AppButton',
-}
+};
 
-export const Square = Template.bind({})
+export const Square = Template.bind({});
 Square.args = {
   variant: AppButtonVariant.BACKGROUND_INVERTED,
   children: '>',
   square: true,
-}
+};
 
-export const OutlineSizeXL = Template.bind({})
+export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
   variant: AppButtonVariant.OUTLINE,
   children: 'AppButton',
   size: AppButtonSize.XL,
-}
+};
 
-export const OutlineSizeL = Template.bind({})
+export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
   variant: AppButtonVariant.OUTLINE,
   children: 'AppButton',
   size: AppButtonSize.L,
-}
+};
 
-export const OutlineSizeM = Template.bind({})
+export const OutlineSizeM = Template.bind({});
 OutlineSizeM.args = {
   variant: AppButtonVariant.OUTLINE,
   children: 'AppButton',
   size: AppButtonSize.M,
-}
+};
 
-export const Disabled = Template.bind({})
+export const Disabled = Template.bind({});
 Disabled.args = {
   children: '>',
   variant: AppButtonVariant.OUTLINE,
   disabled: true,
-}
+};

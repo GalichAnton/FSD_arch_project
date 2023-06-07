@@ -5,14 +5,14 @@ export enum UserRole {
 }
 
 export interface User {
-  id: string
-  username: string
-  avatar?: string
-  roles?: UserRole[]
+  id: string;
+  username: string;
+  avatar?: string;
+  roles?: UserRole[];
 }
 
 export interface UserSchema {
-  authData?: User
+  authData?: User;
 
-  _inited: boolean
+  _inited: boolean;
 }

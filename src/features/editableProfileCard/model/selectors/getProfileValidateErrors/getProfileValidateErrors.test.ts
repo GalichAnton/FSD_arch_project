@@ -1,9 +1,9 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial } from '@reduxjs/toolkit';
 
-import { type StateSchema } from '@/app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
-import { ValidateProfileError } from '../../types/editableProfileCardSchema'
-import { getProfileValidateErrors } from './getProfileValidateErrors'
+import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors.test', () => {
   test('should work with filled state', () => {
@@ -14,14 +14,14 @@ describe('getProfileValidateErrors.test', () => {
           ValidateProfileError.INCORRECT_AGE,
         ],
       },
-    }
+    };
     expect(getProfileValidateErrors(state as StateSchema)).toEqual([
       ValidateProfileError.SERVER_ERROR,
       ValidateProfileError.INCORRECT_AGE,
-    ])
-  })
+    ]);
+  });
   test('should work with empty state', () => {
-    const state: DeepPartial<StateSchema> = {}
-    expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined)
-  })
-})
+    const state: DeepPartial<StateSchema> = {};
+    expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
+  });
+});

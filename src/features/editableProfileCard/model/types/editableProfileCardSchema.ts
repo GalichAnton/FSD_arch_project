@@ -1,4 +1,4 @@
-import { type Profile } from '@/entity/Profile'
+import { type Profile } from '@/entity/Profile';
 
 export enum ValidateProfileError {
   INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
@@ -9,10 +9,10 @@ export enum ValidateProfileError {
 }
 
 export interface ProfileSchema {
-  data?: Profile
-  form?: Profile
-  isLoading: boolean
-  error?: string
-  readonly: boolean
-  validateErrors?: ValidateProfileError[]
+  data?: Profile;
+  form?: Profile;
+  isLoading: boolean;
+  error?: string;
+  readonly: boolean;
+  validateErrors?: ValidateProfileError[];
 }

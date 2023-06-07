@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
-import { NotFoundPage } from './NotFoundPage'
+import { NotFoundPage } from './NotFoundPage';
 
 export default {
   title: 'pages/NotFoundPage',
@@ -13,11 +13,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof NotFoundPage>
+} as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage/>
+const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
-export const Dark = Template.bind({})
+export const Dark = Template.bind({});
 
-export const Light = Template.bind({})
-Light.decorators = [ThemeDecorator(Theme.DARK)]
+export const Light = Template.bind({});
+Light.decorators = [ThemeDecorator(Theme.DARK)];

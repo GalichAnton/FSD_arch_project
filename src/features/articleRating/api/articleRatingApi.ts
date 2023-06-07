@@ -1,16 +1,16 @@
-import { type Rating } from '@/entity/Rating'
-import { rtkApi } from '@/shared/api/rtkApi'
+import { type Rating } from '@/entity/Rating';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface GetArticleRatingArg {
-  userId: string
-  articleId: string
+  userId: string;
+  articleId: string;
 }
 
 interface RateArticleArg {
-  userId: string
-  articleId: string
-  rate: number
-  feedback?: string
+  userId: string;
+  articleId: string;
+  rate: number;
+  feedback?: string;
 }
 
 const articleRatingApi = rtkApi.injectEndpoints({
@@ -32,7 +32,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
       }),
     }),
   }),
-})
+});
 
-export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery
-export const useRateArticle = articleRatingApi.useRateArticleMutation
+export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery;
+export const useRateArticle = articleRatingApi.useRateArticleMutation;

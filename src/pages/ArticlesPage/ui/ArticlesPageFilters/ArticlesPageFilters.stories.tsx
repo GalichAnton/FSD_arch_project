@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { ArticlesPageFilters } from './ArticlesPageFilters'
+import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
   title: 'pages/Article/ArticlesPageFilters',
@@ -10,9 +10,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticlesPageFilters>
+} as ComponentMeta<typeof ArticlesPageFilters>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />
+const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
+  <ArticlesPageFilters {...args} />
+);
 
-export const Normal = Template.bind({})
-Normal.args = {}
+export const Normal = Template.bind({});
+Normal.args = {};

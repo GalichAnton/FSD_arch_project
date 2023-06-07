@@ -1,9 +1,9 @@
-import { userActions } from '@/entity/User'
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { userActions } from '@/entity/User';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { loginByUsername } from './loginByUsername'
+import { loginByUsername } from './loginByUsername';
 
-jest.mock('axios')
+jest.mock('axios');
 
 describe('loginByUsername.test', () => {
   // let dispatch: Dispatch
@@ -36,27 +36,31 @@ describe('loginByUsername.test', () => {
   // })
 
   test('status ok test', async () => {
-    const thunk = new TestAsyncThunk(loginByUsername)
+    const thunk = new TestAsyncThunk(loginByUsername);
 
-    thunk.api.post.mockReturnValue(Promise.resolve({ data: { username: 'admin', id: '1' } }))
+    thunk.api.post.mockReturnValue(
+      Promise.resolve({ data: { username: 'admin', id: '1' } }),
+    );
 
-    const result = await thunk.callThunk({ username: '123', password: '123' })
+    const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData({ username: 'admin', id: '1' }))
-    expect(thunk.dispatch).toHaveBeenCalledTimes(3)
-    expect(thunk.api.post).toHaveBeenCalled()
-    expect(result.meta.requestStatus).toEqual('fulfilled')
-  })
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData({ username: 'admin', id: '1' }),
+    );
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+    expect(thunk.api.post).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toEqual('fulfilled');
+  });
 
   test('status 403 test', async () => {
-    const thunk = new TestAsyncThunk(loginByUsername)
+    const thunk = new TestAsyncThunk(loginByUsername);
 
-    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const result = await thunk.callThunk({ username: '123', password: '123' })
+    const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledTimes(2)
-    expect(thunk.api.post).toHaveBeenCalled()
-    expect(result.meta.requestStatus).toEqual('rejected')
-  })
-})
+    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
+    expect(thunk.api.post).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toEqual('rejected');
+  });
+});

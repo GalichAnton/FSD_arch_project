@@ -10,6 +10,7 @@
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:vite": "vite",
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "dev": "webpack",
     "start": "webpack serve --env port=3000 ",
     "build:prod": "webpack --env mode=production",
@@ -79,6 +80,7 @@
     "css-loader": "^6.6.0",
     "cypress": "^11.0.0",
     "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-fsd-arch-plugin": "^0.0.7",
     "eslint-plugin-import": "^2.25.4",
@@ -97,6 +99,7 @@
     "lint-staged": "^13.0.3",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "^2.7.1",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.7",
     "sass": "^1.49.9",
@@ -146,8 +149,5 @@
         "preset": "iPhone 7"
       }
     }
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
   }
 }

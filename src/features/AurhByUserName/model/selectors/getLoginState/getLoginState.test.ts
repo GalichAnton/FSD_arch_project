@@ -1,8 +1,13 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial } from '@reduxjs/toolkit';
 
-import { type StateSchema } from '@/app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
-import { getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername } from './getLoginState'
+import {
+  getLoginError,
+  getLoginIsLoading,
+  getLoginPassword,
+  getLoginUsername,
+} from './getLoginState';
 
 describe('getLoginState', () => {
   const state: DeepPartial<StateSchema> = {
@@ -12,21 +17,21 @@ describe('getLoginState', () => {
       username: 'admin',
       password: '12345',
     },
-  }
+  };
 
   test('should return error', () => {
-    expect(getLoginError(state as StateSchema)).toEqual('error')
-  })
+    expect(getLoginError(state as StateSchema)).toEqual('error');
+  });
 
   test('should return isLoading', () => {
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(true)
-  })
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
+  });
 
   test('should return pasword', () => {
-    expect(getLoginPassword(state as StateSchema)).toEqual('12345')
-  })
+    expect(getLoginPassword(state as StateSchema)).toEqual('12345');
+  });
 
   test('should return username', () => {
-    expect(getLoginUsername(state as StateSchema)).toEqual('admin')
-  })
-})
+    expect(getLoginUsername(state as StateSchema)).toEqual('admin');
+  });
+});

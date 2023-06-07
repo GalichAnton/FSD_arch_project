@@ -1,15 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
-import { Page } from '@/widgets/Page'
+import { Page } from '@/widgets/Page';
 
 export const AdminPanelPage = () => {
-  const { t } = useTranslation('about')
+  const { t } = useTranslation('about');
 
-  return (
-    <Page data-testid='AdminPanelPage'>
-      {t('Админ панель')}
-    </Page>
-  )
-}
+  return <Page data-testid="AdminPanelPage">{t('Админ панель')}</Page>;
+};

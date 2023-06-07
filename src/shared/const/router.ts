@@ -9,16 +9,16 @@ export const AppRoutes = {
   ADMIN_PANEL: '/admin_panel',
   FORBIDDEN: '/forbidden',
   NOT_FOUND: '*',
-} as const
+} as const;
 
-export type AppRoutesType = keyof typeof AppRoutes
+export type AppRoutesType = keyof typeof AppRoutes;
 
-export const getRouteMain = () => '/'
-export const getRouteAbout = () => '/about'
-export const getRouteProfile = (id: string) => `/profile/${id}`
-export const getRouteArticles = () => '/articles'
-export const getRouteArticleDetails = (id: string) => `/articles/${id}`
-export const getRouteArticleCreate = () => '/articles/new'
-export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`
-export const getRouteAdmin = () => '/admin'
-export const getRouteForbidden = () => '/forbidden'
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdmin = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';

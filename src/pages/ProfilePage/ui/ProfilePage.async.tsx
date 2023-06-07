@@ -1,4 +1,8 @@
-import { lazy } from 'react'
+import { lazy } from 'react';
 
-export const ProfilePageAsync = lazy(async () => await import(/* webpackChunkName: "ProfilePageAsync" */'./ProfilePage')
-  .then(module => ({ default: module.ProfilePage })))
+export const ProfilePageAsync = lazy(
+  async () =>
+    await import(
+      /* webpackChunkName: "ProfilePageAsync" */ './ProfilePage'
+    ).then((module) => ({ default: module.ProfilePage })),
+);

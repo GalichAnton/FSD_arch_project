@@ -1,19 +1,26 @@
-import { type AnyAction, combineReducers, type ReducersMapObject, type Reducer } from '@reduxjs/toolkit'
+import {
+  type AnyAction,
+  combineReducers,
+  type ReducersMapObject,
+  type Reducer,
+} from '@reduxjs/toolkit';
 
 import {
   type StateSchemaKeys,
   type StateSchema,
   type ReducerManager,
   type MountedReducers,
-} from './StateSchema'
+} from './StateSchema';
 
-export function createReducerManager (initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
-  const reducers = { ...initialReducers }
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>,
+): ReducerManager {
+  const reducers = { ...initialReducers };
 
-  let combinedReducer = combineReducers(reducers)
+  let combinedReducer = combineReducers(reducers);
 
-  let keysToRemove: StateSchemaKeys[] = []
-  const mountedReducers: MountedReducers = {}
+  let keysToRemove: StateSchemaKeys[] = [];
+  const mountedReducers: MountedReducers = {};
 
   return {
     getReducerMap: () => reducers,
@@ -21,37 +28,37 @@ export function createReducerManager (initialReducers: ReducersMapObject<StateSc
 
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
-        state = { ...state }
+        state = { ...state };
         for (const key of keysToRemove) {
-          delete state[key]
+          delete state[key];
         }
-        keysToRemove = []
+        keysToRemove = [];
       }
 
-      return combinedReducer(state, action)
+      return combinedReducer(state, action);
     },
 
     add: (key: StateSchemaKeys, reducer: Reducer) => {
       if (!key || reducers[key]) {
-        return
+        return;
       }
-      reducers[key] = reducer
-      mountedReducers[key] = true
+      reducers[key] = reducer;
+      mountedReducers[key] = true;
 
-      combinedReducer = combineReducers(reducers)
+      combinedReducer = combineReducers(reducers);
     },
 
     remove: (key: StateSchemaKeys) => {
       if (!key || !reducers[key]) {
-        return
+        return;
       }
 
-      delete reducers[key]
+      delete reducers[key];
 
-      keysToRemove.push(key)
-      mountedReducers[key] = false
+      keysToRemove.push(key);
+      mountedReducers[key] = false;
 
-      combinedReducer = combineReducers(reducers)
+      combinedReducer = combineReducers(reducers);
     },
-  }
+  };
 }

@@ -1,8 +1,8 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial } from '@reduxjs/toolkit';
 
-import { type StateSchema } from '@/app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
-import { getProfileReadonly } from './getProfileReadonly'
+import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly.test', () => {
   test('should work with filled state', () => {
@@ -10,11 +10,11 @@ describe('getProfileReadonly.test', () => {
       profile: {
         readonly: true,
       },
-    }
-    expect(getProfileReadonly(state as StateSchema)).toEqual(true)
-  })
+    };
+    expect(getProfileReadonly(state as StateSchema)).toEqual(true);
+  });
   test('should work with empty state', () => {
-    const state: DeepPartial<StateSchema> = {}
-    expect(getProfileReadonly(state as StateSchema)).toEqual(undefined)
-  })
-})
+    const state: DeepPartial<StateSchema> = {};
+    expect(getProfileReadonly(state as StateSchema)).toEqual(undefined);
+  });
+});

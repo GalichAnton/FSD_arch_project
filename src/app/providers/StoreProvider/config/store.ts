@@ -1,14 +1,14 @@
-import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
 
-import { userReducer } from '@/entity/User'
-import { uiReducer } from '@/features/UI'
-import { $api } from '@/shared/api/api'
-import { rtkApi } from '@/shared/api/rtkApi'
+import { userReducer } from '@/entity/User';
+import { uiReducer } from '@/features/UI';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 
-import { createReducerManager } from './reducerManager'
-import { type ThunkExtraArg, type StateSchema } from './StateSchema'
+import { createReducerManager } from './reducerManager';
+import { type ThunkExtraArg, type StateSchema } from './StateSchema';
 
-export function createReduxStore (
+export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
 ) {
@@ -17,29 +17,30 @@ export function createReduxStore (
     user: userReducer,
     ui: uiReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
-  }
+  };
 
   const extraArg: ThunkExtraArg = {
     api: $api,
-  }
+  };
 
-  const reducerManager = createReducerManager(rootReducers)
+  const reducerManager = createReducerManager(rootReducers);
 
   const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument: extraArg,
-      },
-    }).concat(rtkApi.middleware),
-  })
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg,
+        },
+      }).concat(rtkApi.middleware),
+  });
 
   // @ts-expect-error
-  store.reducerManager = reducerManager
+  store.reducerManager = reducerManager;
 
-  return store
+  return store;
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
