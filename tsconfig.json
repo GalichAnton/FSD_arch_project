@@ -33,18 +33,12 @@
     "strict": true,
     "paths": {
       "@/*": ["src/*"]
-    },
+    }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/**/*",
-    "./src/**/*.ts",
-    "./src/**/*.tsx", 
-    "./cypress.config.ts"
-  ]
-
+  "include": ["./config/**/*", "./src/**/*.ts", "./src/**/*.tsx", "./cypress.config.ts", "./scripts/**/*"]
 }
