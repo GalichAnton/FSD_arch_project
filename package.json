@@ -149,5 +149,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   }
 }
