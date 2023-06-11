@@ -5,11 +5,9 @@ import { useSelector } from 'react-redux';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-  AppButton,
-  AppButtonSize,
-  AppButtonVariant,
-} from '@/shared/ui/AppButton';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/AppButton';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { VStack } from '@/shared/ui/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -31,40 +29,43 @@ export const SideBar = memo((props: SideBarProps) => {
   };
 
   const itemsList = useMemo(
-    () =>
-      sidebarItemsList.map((item) => (
-        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
-      )),
+    () => sidebarItemsList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
     [collapsed],
   );
 
   return (
-    <menu
-      data-testid="sideBar"
-      className={classNames(cls.sideBar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <AppButton
-        data-testid="toggle"
-        className={cls.collapseBtn}
-        onClick={() => {
-          onToggle();
-        }}
-        variant={AppButtonVariant.BACKGROUND_INVERTED}
-        square
-        size={AppButtonSize.L}
-      >
-        {collapsed ? '>' : '<'}
-      </AppButton>
-      <VStack gap="8" className={cls.items}>
-        {itemsList}
-      </VStack>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher className={cls.langSwitcher} short={collapsed} />
-      </div>
-    </menu>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}
+        >
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      }
+      off={
+        <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+          <AppButton
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className={cls.collapseBtn}
+            variant={AppButtonVariant.BACKGROUND_INVERTED}
+            size={AppButtonSize.L}
+            square
+          >
+            {collapsed ? '>' : '<'}
+          </AppButton>
+          <VStack gap="8" className={cls.items}>
+            {itemsList}
+          </VStack>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher short={collapsed} className={cls.lang} />
+          </div>
+        </aside>
+      }
+    />
   );
 });
 
