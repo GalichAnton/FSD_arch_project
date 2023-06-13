@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './AppButton.module.scss';
 
-export type AppButtonVariant = 'clear' | 'outline';
+export type AppButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type AppButtonSize = 'm' | 'l' | 'xl';
 
