@@ -8,7 +8,8 @@
   width: 100%;
 }
 
-.addonLeft, .addonRight {
+.addonLeft,
+.addonRight {
   display: flex;
 }
 
@@ -23,8 +24,9 @@
 .focused {
   border: 2px solid var(--accent-redesigned);
 
-  .addonLeft svg, .addonRight svg {
-      color: var(--accent-redesigned);
+  .addonLeft svg,
+  .addonRight svg {
+    color: var(--accent-redesigned);
   }
 }
 
@@ -36,7 +38,7 @@
   background: none;
 
   &::placeholder {
-     color: var(--hint-redesigned);
+    color: var(--hint-redesigned);
   }
 }
 

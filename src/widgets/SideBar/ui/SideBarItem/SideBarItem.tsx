@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entity/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLink as AppLinkDepriceted, AppLinkVariant } from '@/shared/ui/depricated/AppLink';
-import { AppLink } from '@/shared/ui/redisigned/AppLink';
-import { Icon } from '@/shared/ui/redisigned/Icon';
+import { AppLink as AppLinkDepriceted, AppLinkVariant } from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import { type SidebarItemType } from '../../model/types/sidebar';
 import cls from './SideBarItem.module.scss';
