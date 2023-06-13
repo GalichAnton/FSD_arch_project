@@ -1,12 +1,11 @@
 import React, { memo, useCallback } from 'react';
 
 import { saveJsonSettings } from '@/entity/User';
-import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
-import LightIcon from '@/shared/assets/icons/theme-light.svg';
-import { Theme } from '@/shared/const/theme';
+import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
+import { Icon } from '@/shared/ui/Icon';
 
 export const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme();
@@ -20,7 +19,7 @@ export const ThemeSwitcher = memo(() => {
 
   return (
     <AppButton variant={AppButtonVariant.CLEAR} onClick={onToggleHandler}>
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+      <Icon Svg={ThemeIcon} width={40} height={40} inverted />
     </AppButton>
   );
 });
