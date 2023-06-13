@@ -8,9 +8,9 @@ import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import SearchIcon from '@/shared/assets/icons/search.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { type SortOrder } from '@/shared/types/sort';
-import { Card } from '@/shared/ui/redisigned/Card';
-import { Icon } from '@/shared/ui/redisigned/Icon';
-import { Input } from '@/shared/ui/redisigned/Input';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/Stack';
 
 import cls from './ArticlesFilters.module.scss';
@@ -28,17 +28,7 @@ interface ArticlesFiltersProps {
 }
 
 export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
-  const {
-    className,
-    onChangeType,
-    onChangeSearch,
-    search,
-    onChangeSort,
-    sort,
-    onChangeOrder,
-    order,
-    type,
-  } = props;
+  const { className, onChangeType, onChangeSearch, search, onChangeSort, sort, onChangeOrder, order, type } = props;
   const { t } = useTranslation();
 
   return (
@@ -51,12 +41,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           addonLeft={<Icon Svg={SearchIcon} />}
         />
         <ArticleTypeTabs value={type} onChangeType={onChangeType} className={cls.tabs} />
-        <ArticleSortSelector
-          order={order}
-          sort={sort}
-          onChangeOrder={onChangeOrder}
-          onChangeSort={onChangeSort}
-        />
+        <ArticleSortSelector order={order} sort={sort} onChangeOrder={onChangeOrder} onChangeSort={onChangeSort} />
       </VStack>
     </Card>
   );
