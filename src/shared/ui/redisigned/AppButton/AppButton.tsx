@@ -34,6 +34,9 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Увеличивает кнопку на всю свободную ширину
    */
   fullWidth?: boolean;
+
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const AppButton = memo((props: AppButtonProps) => {
@@ -45,6 +48,8 @@ export const AppButton = memo((props: AppButtonProps) => {
     disabled,
     size = 'm',
     fullWidth,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
 
@@ -52,6 +57,7 @@ export const AppButton = memo((props: AppButtonProps) => {
     [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
+    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   };
 
   return (
@@ -59,7 +65,9 @@ export const AppButton = memo((props: AppButtonProps) => {
       className={classNames(cls.appButton, mods, [className, cls[variant], cls[size]])}
       {...otherProps}
     >
+      <div className={cls.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={cls.addonRight}>{addonRight}</div>
     </button>
   );
 });
