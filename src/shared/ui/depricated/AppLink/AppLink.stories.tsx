@@ -2,19 +2,17 @@ import React from 'react';
 
 import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 
-import { AppLink, AppLinkVariant } from './AppLink';
+import { AppLinkDeprecated, AppLinkVariant } from './AppLink';
 
 export default {
   title: 'shared/AppLink',
-  component: AppLink,
+  component: AppLinkDeprecated,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof AppLink>;
+} as ComponentMeta<typeof AppLinkDeprecated>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => (
-  <AppLink {...args} />
-);
+const Template: ComponentStory<typeof AppLinkDeprecated> = (args) => <AppLinkDeprecated {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

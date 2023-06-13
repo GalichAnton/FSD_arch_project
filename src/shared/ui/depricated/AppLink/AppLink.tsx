@@ -18,20 +18,10 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
-  const {
-    className,
-    children,
-    variant = AppLinkVariant.PRIMARY,
-    to,
-    ...otherProps
-  } = props;
+  const { className, children, variant = AppLinkVariant.PRIMARY, to, ...otherProps } = props;
 
   return (
-    <Link
-      to={to}
-      className={classNames(cls.appLink, {}, [className, cls[variant]])}
-      {...otherProps}
-    >
+    <Link to={to} className={classNames(cls.appLink, {}, [className, cls[variant]])} {...otherProps}>
       {children}
     </Link>
   );

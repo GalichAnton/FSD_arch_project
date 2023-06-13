@@ -1,0 +1,56 @@
+.appButton {
+  cursor: pointer;
+  color: var(--text-redesigned);
+  padding: 6px 15px;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+}
+
+.clear {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+}
+
+.square {
+  padding: 0;
+}
+
+.square.m {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+}
+
+.square.l {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+}
+
+.square.xl {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
+}
+
+.m {
+  font: var(--font-m-redesigned);
+}
+
+.l {
+  font: var(--font-l-redesigned);
+}
+
+.xl {
+  font: var(--font-xl-redesigned);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fullWidth {
+  width: 100%;
+}

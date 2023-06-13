@@ -1,13 +1,21 @@
 import React, { memo, useCallback } from 'react';
 
 import { saveJsonSettings } from '@/entity/User';
-import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
-import { Icon } from '@/shared/ui/depricated/Icon';
+import { Icon as IconDeprecated } from '@/shared/ui/depricated/Icon';
+import { Icon } from '@/shared/ui/redisigned/Icon';
 
-export const ThemeSwitcher = memo(() => {
+interface ThemeSwitcherProps {
+  className?: string;
+}
+
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
@@ -18,9 +26,19 @@ export const ThemeSwitcher = memo(() => {
   }, [dispatch, toggleTheme]);
 
   return (
-    <AppButton variant={AppButtonVariant.CLEAR} onClick={onToggleHandler}>
-      <Icon Svg={ThemeIcon} width={40} height={40} inverted />
-    </AppButton>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+      off={
+        <AppButton
+          variant={AppButtonVariant.CLEAR}
+          className={classNames('', {}, [className])}
+          onClick={onToggleHandler}
+        >
+          <IconDeprecated Svg={ThemeIconDeprecated} width={40} height={40} inverted />
+        </AppButton>
+      }
+    />
   );
 });
 

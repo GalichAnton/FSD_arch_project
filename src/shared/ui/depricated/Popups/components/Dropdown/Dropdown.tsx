@@ -5,7 +5,7 @@ import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { type DropdownDirection } from '@/shared/types/ui';
 
-import { AppLink } from '../../../AppLink/AppLink';
+import { AppLinkDeprecated } from '../../../AppLink/AppLink';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './Dropdown.module.scss';
@@ -30,10 +30,7 @@ export function Dropdown(props: DropdownProps) {
   const menuClasses = [mapDirectionClass[direction]];
 
   return (
-    <Menu
-      as="div"
-      className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
-    >
+    <Menu as="div" className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}>
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {items.map((item) => {
@@ -50,12 +47,7 @@ export function Dropdown(props: DropdownProps) {
 
           if (item.href) {
             return (
-              <Menu.Item
-                key={item.href}
-                as={AppLink}
-                to={item.href}
-                disabled={item.disabled}
-              >
+              <Menu.Item key={item.href} as={AppLinkDeprecated} to={item.href} disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );

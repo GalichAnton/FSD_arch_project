@@ -4,12 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard-with-typescript',
-    'plugin:i18next/recommended',
-    'prettier',
-  ],
+  extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:i18next/recommended', 'prettier'],
   globals: {
     __IS_DEV__: true,
     __API__: true,
@@ -46,7 +41,6 @@ module.exports = {
     'react/react-in-jsx-scope': ['off'],
     '@typescript-eslint/naming-convention': ['off'],
     '@typescript-eslint/consistent-type-assertions': ['off'],
-    'max-len': ['error', { code: 120, ignoreComments: true }],
     '@typescript-eslint/no-floating-promises': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/prefer-includes': 'off',
@@ -63,26 +57,19 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilesPatterns: [
-          '**/*.test.*',
-          '**/*.story.*',
-          '**/StoreDecorator.tsx',
-        ],
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
       },
     ],
     'fsd-arch-plugin/layer-imports': [
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: [
-          '**/StoreProvider',
-          '**/testing',
-          '**/StateSchema',
-        ],
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StateSchema'],
       },
     ],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     'import/order': [
       'error',
       {

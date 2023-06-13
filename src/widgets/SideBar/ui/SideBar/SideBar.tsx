@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
 import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { AppLogo } from '@/shared/ui/redisigned/AppLogo';
+import { Icon } from '@/shared/ui/redisigned/Icon';
 import { VStack } from '@/shared/ui/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -29,7 +31,10 @@ export const SideBar = memo((props: SideBarProps) => {
   };
 
   const itemsList = useMemo(
-    () => sidebarItemsList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+      )),
     [collapsed],
   );
 
@@ -41,11 +46,28 @@ export const SideBar = memo((props: SideBarProps) => {
           data-testid="sidebar"
           className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50} />
+          <VStack gap="8" className={cls.items}>
+            {itemsList}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className={cls.collapseBtn}
+            Svg={ArrowIcon}
+            clickable
+          />
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher short={collapsed} className={cls.lang} />
+          </div>
         </aside>
       }
       off={
-        <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+        <aside
+          data-testid="sidebar"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
           <AppButton
             data-testid="sidebar-toggle"
             onClick={onToggle}
