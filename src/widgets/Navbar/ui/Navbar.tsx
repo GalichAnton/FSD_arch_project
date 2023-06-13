@@ -10,8 +10,8 @@ import { NotificationButton } from '@/features/notificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink';
 import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { AppLink, AppLinkVariant } from '@/shared/ui/depricated/AppLink';
 import { Text, TextTheme } from '@/shared/ui/depricated/Text';
 import { HStack } from '@/shared/ui/Stack';
 
@@ -51,7 +51,11 @@ export const Navbar = memo((props: NavbarProps) => {
         off={
           <header className={classNames(cls.Navbar, {}, [className])}>
             <Text className={cls.appName} title={t('Ulbi TV App')} theme={TextTheme.INVERTED} />
-            <AppLink to={getRouteArticleCreate()} variant={AppLinkVariant.SECONDARY} className={cls.createBtn}>
+            <AppLink
+              to={getRouteArticleCreate()}
+              variant={AppLinkVariant.SECONDARY}
+              className={cls.createBtn}
+            >
               {t('Создать статью')}
             </AppLink>
             <HStack gap="16" className={cls.actions}>
@@ -66,7 +70,11 @@ export const Navbar = memo((props: NavbarProps) => {
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>
-      <AppButton className={cls.links} variant={AppButtonVariant.CLEAR_INVERTED} onClick={onOpenModal}>
+      <AppButton
+        className={cls.links}
+        variant={AppButtonVariant.CLEAR_INVERTED}
+        onClick={onOpenModal}
+      >
         {t('Войти')}
       </AppButton>
 

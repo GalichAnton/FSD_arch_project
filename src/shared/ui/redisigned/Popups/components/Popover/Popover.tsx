@@ -15,18 +15,15 @@ interface PopoverProps {
   trigger: ReactNode;
   children: ReactNode;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export function Popover(props: PopoverProps) {
   const { className, trigger, direction = 'bottom right', children } = props;
 
-  const menuClasses = [mapDirectionClass[direction]];
+  const menuClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
     <HPopover className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
-      <HPopover.Button as={'div'} className={popupCls.trigger}>
+      <HPopover.Button as="div" className={popupCls.trigger}>
         {trigger}
       </HPopover.Button>
 

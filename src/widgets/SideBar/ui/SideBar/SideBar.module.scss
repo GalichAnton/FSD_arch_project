@@ -14,16 +14,16 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .langSwitcher {
     margin-left: 20px;
   }
-  
+
   .items {
     margin-top: 20px;
     margin-left: 30px;
   }
-  
+
   .collapseBtn {
     position: absolute;
     right: -32px;
@@ -44,7 +44,6 @@
     margin-left: 0;
   }
 }
-
 
 .SidebarRedesigned {
   background: var(--light-bg-redesigned);
@@ -78,7 +77,6 @@
   }
 }
 
-
 .collapsedRedesigned {
   width: 50px;
 
@@ -100,8 +98,4 @@
     transform: rotate(-90deg);
   }
 
-  .switchers {
-    flex-direction: column;
-    align-items: center;
-  }
 }

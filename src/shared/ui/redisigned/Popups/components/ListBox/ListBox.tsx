@@ -4,8 +4,10 @@ import { Listbox as HListBox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { type DropdownDirection } from '@/shared/types/ui';
+// eslint-disable-next-line fsd-arch-plugin/path-checker
+import { HStack } from '@/shared/ui/Stack';
 
-import { HStack } from '../../../../Stack';
+import { AppButton } from '../../../AppButton';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
@@ -26,10 +28,7 @@ interface ListBoxProps {
   direction?: DropdownDirection;
   label?: string;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export function ListBox(props: ListBoxProps) {
   const {
     className,
@@ -42,7 +41,7 @@ export function ListBox(props: ListBoxProps) {
     label,
   } = props;
 
-  const optionsClasses = [mapDirectionClass[direction]];
+  const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
     <HStack gap="4">
@@ -54,7 +53,9 @@ export function ListBox(props: ListBoxProps) {
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button className={cls.trigger}>{value ?? defaultValue}</HListBox.Button>
+        <HListBox.Button className={cls.trigger}>
+          <AppButton disabled={readonly}>{value ?? defaultValue}</AppButton>
+        </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
           {items?.map((item) => (
             <HListBox.Option
