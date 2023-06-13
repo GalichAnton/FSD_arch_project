@@ -4,8 +4,8 @@ import { ArticleView } from '@/entity/Article';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
-import { Icon } from '@/shared/ui/Icon';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { Icon } from '@/shared/ui/depricated/Icon';
 
 import cls from './ArticleViewSelector.module.scss';
 

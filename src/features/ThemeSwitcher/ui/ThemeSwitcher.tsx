@@ -4,8 +4,8 @@ import { saveJsonSettings } from '@/entity/User';
 import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
-import { Icon } from '@/shared/ui/Icon';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { Icon } from '@/shared/ui/depricated/Icon';
 
 export const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme();

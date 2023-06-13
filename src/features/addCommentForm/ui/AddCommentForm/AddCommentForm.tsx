@@ -9,15 +9,12 @@ import {
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
 import { Input } from '@/shared/ui/Input';
 import { HStack } from '@/shared/ui/Stack';
 
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import {
-  addCommentFormActions,
-  addCommentFormReducer,
-} from '../../model/slices/addCommentFormSlice';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -62,11 +59,7 @@ export const AddCommentForm = memo((props: AddCommentFormProps) => {
           onChange={onCommentTextChange}
           data-testid="AddCommentForm.Input"
         />
-        <AppButton
-          variant={AppButtonVariant.OUTLINE}
-          onClick={onSendHandler}
-          data-testid="AddCommentForm.Button"
-        >
+        <AppButton variant={AppButtonVariant.OUTLINE} onClick={onSendHandler} data-testid="AddCommentForm.Button">
           {t('Отправить')}
         </AppButton>
       </HStack>

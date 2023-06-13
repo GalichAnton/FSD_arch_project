@@ -12,10 +12,10 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { Text, TextAlign, TextSize } from '@/shared/ui/depricated/Text';
 import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 
 import {
   getArticleDetailsData,
@@ -50,29 +50,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return (
-          <ArticleCodeBlockComponent
-            key={block.id}
-            block={block}
-            className={cls.block}
-          />
-        );
+        return <ArticleCodeBlockComponent key={block.id} block={block} className={cls.block} />;
       case ArticleBlockType.IMAGE:
-        return (
-          <ArticleImageBlockComponent
-            key={block.id}
-            block={block}
-            className={cls.block}
-          />
-        );
+        return <ArticleImageBlockComponent key={block.id} block={block} className={cls.block} />;
       case ArticleBlockType.TEXT:
-        return (
-          <ArticleTextBlockComponent
-            key={block.id}
-            className={cls.block}
-            block={block}
-          />
-        );
+        return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block} />;
       default:
         return null;
     }
@@ -89,12 +71,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton
-          className={cls.avatar}
-          width={200}
-          height={200}
-          border="50%"
-        />
+        <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
         <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -102,12 +79,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
       </>
     );
   } else if (error) {
-    content = (
-      <Text
-        align={TextAlign.CENTER}
-        title={t('Произошла ошибка при загрузке статьи.')}
-      />
-    );
+    content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи.')} />;
   } else {
     content = (
       <>
@@ -115,12 +87,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
         <VStack gap="4" max>
-          <Text
-            className={cls.title}
-            title={article?.title}
-            text={article?.subtitle}
-            size={TextSize.L}
-          />
+          <Text className={cls.title} title={article?.title} text={article?.subtitle} size={TextSize.L} />
           <HStack gap="8" className={cls.articleInfo}>
             <Icon className={cls.icon} Svg={EyeIcon} />
             <Text text={String(article?.views)} />
@@ -137,11 +104,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeOnUnmount>
-      <VStack
-        gap="16"
-        max
-        className={classNames(cls.ArticleDetails, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

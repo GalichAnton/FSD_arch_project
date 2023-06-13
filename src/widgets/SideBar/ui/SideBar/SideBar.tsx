@@ -6,8 +6,8 @@ import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/AppButton';
 import { AppLogo } from '@/shared/ui/AppLogo';
+import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
 import { VStack } from '@/shared/ui/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';

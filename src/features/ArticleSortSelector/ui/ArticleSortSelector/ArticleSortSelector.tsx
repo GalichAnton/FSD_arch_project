@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortField } from '@/entity/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { type SortOrder } from '@/shared/types/sort';
-import { Select, type SelectOption } from '@/shared/ui/Select';
+import { Select, type SelectOption } from '@/shared/ui/depricated/Select';
 
 import cls from './ArticleSortSelector.module.scss';
 
@@ -61,13 +61,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         value={sort}
         onChange={onChangeSort}
       />
-      <Select
-        options={orderOptions}
-        label={t('по')}
-        value={order}
-        onChange={onChangeOrder}
-        className={cls.order}
-      />
+      <Select options={orderOptions} label={t('по')} value={order} onChange={onChangeOrder} className={cls.order} />
     </div>
   );
 });

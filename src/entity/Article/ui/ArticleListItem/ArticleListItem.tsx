@@ -6,21 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { Text } from '@/shared/ui/depricated/Text';
 import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text } from '@/shared/ui/Text';
 
-import {
-  type Article,
-  ArticleBlockType,
-  type ArticleTextBlock,
-  ArticleView,
-} from '../../model/types/article';
+import { type Article, ArticleBlockType, type ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
@@ -49,15 +44,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
-    ) as ArticleTextBlock;
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
     return (
-      <div
-        data-testid="ArticleListItem"
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
+      <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <Card className={cls.card}>
           <div className={cls.header}>
             <Avatar size={30} src={article.user.avatar} />
@@ -72,18 +62,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             className={cls.img}
             alt={article.title}
           />
-          {textBlock && (
-            <ArticleTextBlockComponent
-              block={textBlock}
-              className={cls.textBlock}
-            />
-          )}
+          {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <div className={cls.footer}>
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
-              <AppButton
-                onClick={onOpenArticle}
-                variant={AppButtonVariant.OUTLINE}
-              >
+              <AppButton onClick={onOpenArticle} variant={AppButtonVariant.OUTLINE}>
                 {t('Читать далее...')}
               </AppButton>
             </AppLink>

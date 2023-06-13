@@ -9,9 +9,9 @@ import {
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
+import { Text, TextTheme } from '@/shared/ui/depricated/Text';
 import { Input } from '@/shared/ui/Input';
-import { Text, TextTheme } from '@/shared/ui/Text';
 
 import {
   getLoginError,
@@ -70,12 +70,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
     <DynamicModuleLoader reducers={initialReducers}>
       <form className={classNames(cls.loginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
-        {error && (
-          <Text
-            text={t('Вы ввели неверный логин или пароль')}
-            theme={TextTheme.ERROR}
-          />
-        )}
+        {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
         <Input
           autoFocus
           type="text"

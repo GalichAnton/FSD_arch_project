@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton, AppButtonVariant } from '@/shared/ui/AppButton';
+import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
 
 interface LanguageSwitcherProps {
   className?: string;
