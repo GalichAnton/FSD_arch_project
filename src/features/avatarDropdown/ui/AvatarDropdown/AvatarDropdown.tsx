@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entity/User';
-import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/depricated/Avatar';
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/depricated/Popups';
-import { Avatar } from '@/shared/ui/redisigned/Avatar';
-import { Dropdown } from '@/shared/ui/redisigned/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -42,6 +42,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
           },
         ]
       : []),
+    {
+      content: t('Настройки'),
+      href: getRouteSettings(),
+    },
     {
       content: t('Профиль'),
       href: getRouteProfile(authData.id),
