@@ -2,14 +2,23 @@ import { memo, useCallback, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Card } from '@/shared/ui/Card';
-import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
-import { StarRating } from '@/shared/ui/depricated/StarRating';
-import { Text } from '@/shared/ui/depricated/Text';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Input } from '@/shared/ui/Input';
-import { Modal } from '@/shared/ui/Modal';
+import {
+  AppButton as AppButtonDeprecated,
+  AppButtonSize,
+  AppButtonVariant,
+} from '@/shared/ui/deprecated/AppButton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Text as TextDepreacetd } from '@/shared/ui/deprecated/Text';
+import { AppButton } from '@/shared/ui/redesigned/AppButton';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { StarRating } from '@/shared/ui/redesigned/StarRating';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
 interface RatingCardProps {
@@ -53,42 +62,112 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [onCancel, starsCount]);
 
   const modalContent = (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <>
+          <Text title={feedbackTitle} />
+          <Input
+            data-testid="RatingCard.Input"
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Ваш отзыв')}
+          />
+        </>
+      }
+      off={
+        <>
+          <TextDepreacetd title={feedbackTitle} />
+          <InputDeprecated
+            data-testid="RatingCard.Input"
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Ваш отзыв')}
+          />
+        </>
+      }
+    />
+  );
+
+  const content = (
     <>
-      <Text title={feedbackTitle} />
-      <Input data-testid="RatingCard.Input" value={feedback} onChange={setFeedback} placeholder={t('Ваш отзыв')} />
+      <VStack align="center" gap="8" max>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text title={starsCount ? t('Спасибо за оценку!') : title} />}
+          off={<TextDepreacetd title={starsCount ? t('Спасибо за оценку!') : title} />}
+        />
+        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+      </VStack>
+      {!isMobile ? (
+        <Modal isOpen={isModalOpen} lazy>
+          <VStack max gap="32">
+            {modalContent}
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <HStack max gap="16" justify="end">
+                  <AppButton data-testid="RatingCard.Close" onClick={cancelHandle}>
+                    {t('Закрыть')}
+                  </AppButton>
+                  <AppButton data-testid="RatingCard.Send" onClick={acceptHandle}>
+                    {t('Отправить')}
+                  </AppButton>
+                </HStack>
+              }
+              off={
+                <HStack max gap="16" justify="end">
+                  <AppButtonDeprecated
+                    data-testid="RatingCard.Close"
+                    onClick={cancelHandle}
+                    variant={AppButtonVariant.OUTLINE_RED}
+                  >
+                    {t('Закрыть')}
+                  </AppButtonDeprecated>
+                  <AppButtonDeprecated data-testid="RatingCard.Send" onClick={acceptHandle}>
+                    {t('Отправить')}
+                  </AppButtonDeprecated>
+                </HStack>
+              }
+            />
+          </VStack>
+        </Modal>
+      ) : (
+        <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
+          <VStack gap="32">
+            {modalContent}
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <AppButton fullWidth onClick={acceptHandle} size="l">
+                  {t('Отправить')}
+                </AppButton>
+              }
+              off={
+                <AppButtonDeprecated fullWidth onClick={acceptHandle} size={AppButtonSize.L}>
+                  {t('Отправить')}
+                </AppButtonDeprecated>
+              }
+            />
+          </VStack>
+        </Drawer>
+      )}
     </>
   );
 
   return (
-    <Card max className={className} data-testid="RatingCard">
-      <VStack align="center" gap="8">
-        <Text title={title} />
-        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
-      </VStack>
-      {isMobile ? (
-        <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
-          <VStack gap="32">
-            {modalContent}
-            <AppButton fullWidth onClick={acceptHandle} size={AppButtonSize.L}>
-              {t('Отправить')}
-            </AppButton>
-          </VStack>
-        </Drawer>
-      ) : (
-        <Modal isOpen={isModalOpen} lazy>
-          <VStack max gap="32">
-            {modalContent}
-            <HStack max gap="16" justify="end">
-              <AppButton onClick={cancelHandle} variant={AppButtonVariant.OUTLINE_RED} data-testid="RatingCard.Close">
-                {t('Закрыть')}
-              </AppButton>
-              <AppButton onClick={acceptHandle} data-testid="RatingCard.Send">
-                {t('Отправить')}
-              </AppButton>
-            </HStack>
-          </VStack>
-        </Modal>
-      )}
-    </Card>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Card max border="round" padding="24">
+          {content}
+        </Card>
+      }
+      off={
+        <CardDeprecated className={className} max data-testid="RatingCard">
+          {content}
+        </CardDeprecated>
+      }
+    />
   );
 });
