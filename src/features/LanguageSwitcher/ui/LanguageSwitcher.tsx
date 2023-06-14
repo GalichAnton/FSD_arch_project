@@ -7,8 +7,8 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import {
   AppButton as AppButtonDeprecated,
   AppButtonVariant,
-} from '@/shared/ui/depricated/AppButton';
-import { AppButton } from '@/shared/ui/redisigned/AppButton';
+} from '@/shared/ui/deprecated/AppButton';
+import { AppButton } from '@/shared/ui/redesigned/AppButton';
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -22,7 +22,14 @@ export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
-      on={<AppButton variant="clear">{t(short ? 'Короткий язык' : 'Язык')}</AppButton>}
+      on={
+        <AppButton
+          onClick={() => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')}
+          variant="clear"
+        >
+          {t(short ? 'Короткий язык' : 'Язык')}
+        </AppButton>
+      }
       off={
         <AppButtonDeprecated
           variant={AppButtonVariant.CLEAR}

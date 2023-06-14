@@ -8,7 +8,7 @@
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Обновить страницу": "Refresh page",
   "Переключение": "Switch",
-  "Войти":"Sign in",
+  "Войти": "Sign in",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Форма авторизации": "Auth form",
@@ -41,5 +41,8 @@
   "FSD App": "FSD App",
   "Создать статью": "Create article",
   "Профиль пользователя": "Профиль пользователя",
-  "Закрыть": "Закрыть"
+  "Закрыть": "Закрыть",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }
