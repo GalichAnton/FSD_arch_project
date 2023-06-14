@@ -69,7 +69,7 @@ module.exports = {
     ],
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
-    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+    'react/jsx-max-props-per-line': ['error', { maximum: 5 }],
     'import/order': [
       'error',
       {

@@ -3,7 +3,9 @@ import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/depricated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/Stack';
 
 import { type Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -27,10 +29,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const { className, articles, view = ArticleView.SMALL, isLoading, target } = props;
   const { t } = useTranslation();
 
-  const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} className={cls.card} key={article.id} target={target} />
-  );
-
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -40,9 +38,29 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem article={item} view={view} target={target} key={item.id} className={cls.card} />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])} data-testid="ArticleList">
+          {articles.map((item) => (
+            <ArticleListItem article={item} view={view} target={target} key={item.id} className={cls.card} />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });
