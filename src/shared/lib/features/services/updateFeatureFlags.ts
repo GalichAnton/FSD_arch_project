@@ -11,27 +11,28 @@ interface UpdateFeatureFlagOptions {
   newFeatures: Partial<FeatureFlags>;
 }
 
-export const updateFeatureFlag = createAsyncThunk<void, UpdateFeatureFlagOptions, ThunkConfig<string>>(
-  'user/saveJsonSettings',
-  async ({ userId, newFeatures }, thunkApi) => {
-    const { rejectWithValue, dispatch } = thunkApi;
+export const updateFeatureFlag = createAsyncThunk<
+  void,
+  UpdateFeatureFlagOptions,
+  ThunkConfig<string>
+>('features/updateFeatureFlag', async ({ userId, newFeatures }, thunkApi) => {
+  const { rejectWithValue, dispatch } = thunkApi;
 
-    try {
-      await dispatch(
-        updateFeatureFlagsMutation({
-          userId,
-          features: {
-            ...getAllFeatureFlags(),
-            ...newFeatures,
-          },
-        }),
-      );
+  try {
+    await dispatch(
+      updateFeatureFlagsMutation({
+        userId,
+        features: {
+          ...getAllFeatureFlags(),
+          ...newFeatures,
+        },
+      }),
+    );
 
-      window.location.reload();
-      return undefined;
-    } catch (e) {
-      console.log(e);
-      return rejectWithValue('');
-    }
-  },
-);
+    window.location.reload();
+    return undefined;
+  } catch (e) {
+    console.log(e);
+    return rejectWithValue('');
+  }
+});
