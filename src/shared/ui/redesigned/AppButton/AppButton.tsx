@@ -6,6 +6,8 @@ import cls from './AppButton.module.scss';
 
 export type AppButtonVariant = 'clear' | 'outline' | 'filled';
 
+export type AppButtonColor = 'normal' | 'success' | 'error';
+
 export type AppButtonSize = 'm' | 'l' | 'xl';
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -50,6 +52,7 @@ export const AppButton = memo((props: AppButtonProps) => {
     fullWidth,
     addonLeft,
     addonRight,
+    color = 'normal',
     ...otherProps
   } = props;
 
@@ -62,7 +65,7 @@ export const AppButton = memo((props: AppButtonProps) => {
 
   return (
     <button
-      className={classNames(cls.appButton, mods, [className, cls[variant], cls[size]])}
+      className={classNames(cls.appButton, mods, [className, cls[variant], cls[size], cls[color]])}
       {...otherProps}
     >
       <div className={cls.addonLeft}>{addonLeft}</div>

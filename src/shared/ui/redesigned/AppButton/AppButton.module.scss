@@ -40,7 +40,19 @@
   border-radius: 34px;
 
   &:hover {
-    border: 1px solid var(--accent-redesigned);
+    border: 2px solid var(--accent-redesigned);
+  }
+
+  &.normal {
+    border: 2px solid var(--icon-redesigned);
+  }
+
+  &.error {
+    border: 2px solid var(--cancel-redesigned);
+  }
+
+  &.success {
+    border: 2px solid var(--save-redesigned);
   }
 }
 

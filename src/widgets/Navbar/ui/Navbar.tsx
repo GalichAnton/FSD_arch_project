@@ -9,10 +9,14 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { AppButton, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
-import { AppLink, AppLinkVariant } from '@/shared/ui/depricated/AppLink';
-import { Text, TextTheme } from '@/shared/ui/depricated/Text';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import {
+  AppButton as AppButtonDeprecated,
+  AppButtonVariant,
+} from '@/shared/ui/deprecated/AppButton';
+import { AppLink, AppLinkVariant } from '@/shared/ui/deprecated/AppLink';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { AppButton } from '@/shared/ui/redesigned/AppButton';
 import { HStack } from '@/shared/ui/Stack';
 
 import cls from './Navbar.module.scss';
@@ -36,12 +40,18 @@ export const Navbar = memo((props: NavbarProps) => {
     setIsAutoModalOpen(true);
   }, []);
 
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.NavbarRedesigned,
+    off: () => cls.Navbar,
+  });
+
   if (authData) {
     return (
       <ToggleFeatures
         feature="isAppRedesigned"
         on={
-          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+          <header className={classNames(mainClass, {}, [className])}>
             <HStack gap="16" className={cls.actions}>
               <NotificationButton />
               <AvatarDropdown />
@@ -49,7 +59,7 @@ export const Navbar = memo((props: NavbarProps) => {
           </header>
         }
         off={
-          <header className={classNames(cls.Navbar, {}, [className])}>
+          <header className={classNames(mainClass, {}, [className])}>
             <Text className={cls.appName} title={t('Ulbi TV App')} theme={TextTheme.INVERTED} />
             <AppLink
               to={getRouteArticleCreate()}
@@ -69,14 +79,24 @@ export const Navbar = memo((props: NavbarProps) => {
   }
 
   return (
-    <nav className={classNames(cls.navbar, {}, [className])}>
-      <AppButton
-        className={cls.links}
-        variant={AppButtonVariant.CLEAR_INVERTED}
-        onClick={onOpenModal}
-      >
-        {t('Войти')}
-      </AppButton>
+    <nav className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <AppButton variant="clear" className={cls.links} onClick={onOpenModal}>
+            {t('Войти')}
+          </AppButton>
+        }
+        off={
+          <AppButtonDeprecated
+            variant={AppButtonVariant.CLEAR_INVERTED}
+            className={cls.links}
+            onClick={onOpenModal}
+          >
+            {t('Войти')}
+          </AppButtonDeprecated>
+        }
+      />
 
       {isAutoModalOpen && <LoginModal isOpen={isAutoModalOpen} onClose={onCloseModal} />}
     </nav>
