@@ -13,13 +13,16 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { SideBar } from '@/widgets/SideBar';
 
+import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
 const App = () => {
   const { theme } = useTheme();
 
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -56,7 +59,12 @@ const App = () => {
       on={
         <div id="app" className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback="">
-            <MainLayout header={<Navbar />} content={<AppRouter />} sidebar={<SideBar />} />
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<SideBar />}
+              toolbar={toolbar}
+            />
           </Suspense>
         </div>
       }
@@ -64,4 +72,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withTheme(App);

@@ -13,7 +13,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/depricated/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/Stack';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

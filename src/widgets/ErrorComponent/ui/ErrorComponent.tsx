@@ -3,7 +3,7 @@ import React, { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton } from '@/shared/ui/depricated/AppButton';
+import { AppButton } from '@/shared/ui/deprecated/AppButton';
 
 import cls from './ErrorComponent.module.scss';
 

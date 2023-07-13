@@ -1,4 +1,9 @@
-import React, { memo, type ReactNode, type ButtonHTMLAttributes } from 'react';
+import React, {
+  type ReactNode,
+  type ButtonHTMLAttributes,
+  forwardRef,
+  type ForwardedRef,
+} from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -41,38 +46,46 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   addonRight?: ReactNode;
 }
 
-export const AppButton = memo((props: AppButtonProps) => {
-  const {
-    className,
-    children,
-    square,
-    variant = 'outline',
-    disabled,
-    size = 'm',
-    fullWidth,
-    addonLeft,
-    addonRight,
-    color = 'normal',
-    ...otherProps
-  } = props;
+export const AppButton = forwardRef(
+  (props: AppButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    const {
+      className,
+      children,
+      square,
+      variant = 'outline',
+      disabled,
+      size = 'm',
+      fullWidth,
+      addonLeft,
+      addonRight,
+      color = 'normal',
+      ...otherProps
+    } = props;
 
-  const mods: Record<string, boolean> = {
-    [cls.square]: square,
-    [cls.disabled]: disabled,
-    [cls.fullWidth]: fullWidth,
-    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
-  };
+    const mods: Record<string, boolean> = {
+      [cls.square]: square,
+      [cls.disabled]: disabled,
+      [cls.fullWidth]: fullWidth,
+      [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+    };
 
-  return (
-    <button
-      className={classNames(cls.appButton, mods, [className, cls[variant], cls[size], cls[color]])}
-      {...otherProps}
-    >
-      <div className={cls.addonLeft}>{addonLeft}</div>
-      {children}
-      <div className={cls.addonRight}>{addonRight}</div>
-    </button>
-  );
-});
+    return (
+      <button
+        className={classNames(cls.appButton, mods, [
+          className,
+          cls[variant],
+          cls[size],
+          cls[color],
+        ])}
+        ref={ref}
+        {...otherProps}
+      >
+        <div className={cls.addonLeft}>{addonLeft}</div>
+        {children}
+        <div className={cls.addonRight}>{addonRight}</div>
+      </button>
+    );
+  },
+);
 
 AppButton.displayName = 'AppButton';

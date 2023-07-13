@@ -7,9 +7,9 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/depricated/AppButton';
-import { AppLogo } from '@/shared/ui/redisigned/AppLogo';
-import { Icon } from '@/shared/ui/redisigned/Icon';
+import { AppButton, AppButtonSize, AppButtonVariant } from '@/shared/ui/deprecated/AppButton';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { VStack } from '@/shared/ui/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
